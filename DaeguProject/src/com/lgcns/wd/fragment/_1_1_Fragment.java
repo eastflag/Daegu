@@ -25,6 +25,7 @@ public class _1_1_Fragment extends Fragment {
 	private Button btnSubmit;
 	
 	private String mAnswer; 
+	private int mStrike, mBall;
 	
 	public _1_1_Fragment () {
 		
@@ -35,14 +36,47 @@ public class _1_1_Fragment extends Fragment {
 		public void onClick(View v) {
 			switch(v.getId()) {
 			case R.id.btnSubmit:
-				int a = picker1.getValue();
-				int b = picker2.getValue();
-				int c = picker3.getValue();
+				mStrike = 0;
+				mBall = 0;
+				String a = String.valueOf(picker1.getValue());
+				String b = String.valueOf(picker2.getValue());
+				String c = String.valueOf(picker3.getValue());
+				if(mAnswer.substring(0, 1).equals(a)) {
+					//strike
+					++mStrike;
+				} else if (mAnswer.contains(a)) {
+					//ball
+					++mBall;
+				}
+				if(mAnswer.substring(1, 2).equals(b)) {
+					//strike
+					++mStrike;
+				} else if (mAnswer.contains(b)) {
+					//ball
+					++mBall;
+				}
+				if(mAnswer.substring(2, 3).equals(c)) {
+					//strike
+					++mStrike;
+				} else if (mAnswer.contains(c)) {
+					//ball
+					++mBall;
+				}
 				Log.d("LDK", "a:" + a + ", b:" + b + ", c:" + c);
+				Log.d("LDK", "" + mStrike + " strike, " + mBall + " ball");
+				
+				checkEnd();
+				
 				break;
 			}
 		}
 	};
+	
+	private void checkEnd() {
+		if(mStrike == 3) {
+			
+		}
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
