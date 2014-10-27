@@ -1,9 +1,9 @@
-package com.lgcns.wd;
+package com.eastflag.silver;
 
 import java.util.ArrayList;
-
+import com.eastflag.silver.R;
+import com.lgcns.wd.fragment._1_1_Fragment;
 import com.lgcns.wd.fragment._2_1_Fragment;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -22,6 +22,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	private static final int FRAGMENT_AUTO = 1;
+	private static final int FRAGMENT_11 = 11;
 	private static final int FRAGMENT_21 = 21;
 
 	private FragmentManager mFm;
@@ -94,6 +95,7 @@ public class MainActivity extends Activity {
 				Log.d("LDK", "g:" + groupPosition + "c:" + childPosition);
 				switch(groupPosition) {
 				case 0:
+					showSubmenu(FRAGMENT_11);
 					break;
 				case 1:
 					switch(childPosition) {
@@ -196,6 +198,12 @@ public class MainActivity extends Activity {
 		mSubTab.setVisibility(View.VISIBLE);
 
 		switch (tab) {
+		case FRAGMENT_11:
+			mFragment = new _1_1_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_11)).commit();
+			mSubTab.setText("");
+			break;
+
 		case FRAGMENT_21:
 			mFragment = new _2_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_21)).commit();

@@ -1,4 +1,4 @@
-package com.lgcns.wd;
+package com.eastflag.silver;
 
 public final class Constants {
 	

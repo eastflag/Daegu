@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-import com.lgcns.wd.R;
+import com.eastflag.silver.R;
 
 public class _2_1_Fragment extends Fragment {
 	
