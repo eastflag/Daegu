@@ -1,9 +1,11 @@
 package com.eastflag.silver;
 
 import java.util.ArrayList;
+
 import com.eastflag.silver.R;
-import com.lgcns.wd.fragment._1_1_Fragment;
-import com.lgcns.wd.fragment._2_1_Fragment;
+import com.eastflag.silver.fragment._1_1_Fragment;
+import com.eastflag.silver.fragment._2_1_Fragment;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;

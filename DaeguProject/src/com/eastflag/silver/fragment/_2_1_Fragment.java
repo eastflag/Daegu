@@ -1,4 +1,4 @@
-package com.lgcns.wd.fragment;
+package com.eastflag.silver.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
