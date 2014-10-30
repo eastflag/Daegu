@@ -1,0 +1,224 @@
+* 시도별 실시간 측정정보 조회
+대구
+10-29 20:31:27.093: D/LDK(10335): <?xml version='1.0' encoding='utf-8' ?>
+10-29 20:31:27.093: D/LDK(10335): <response>
+10-29 20:31:27.093: D/LDK(10335):  <header>
+10-29 20:31:27.093: D/LDK(10335):   <resultCode>00</resultCode>
+10-29 20:31:27.093: D/LDK(10335):   <resultMsg>NORMAL SERVICE.</resultMsg>
+10-29 20:31:27.093: D/LDK(10335):  </header>
+10-29 20:31:27.093: D/LDK(10335):  <body>
+10-29 20:31:27.093: D/LDK(10335):   <items>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>남산동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.004</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>1.3</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.001</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.074</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>82</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>108</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>3</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>2</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>수창동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.008</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>1.3</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.001</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.086</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>76</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>115</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>3</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>2</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>지산동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.001</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.5</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.005</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.052</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>78</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>97</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>2</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>2</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>2</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>율하동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.004</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.5</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.007</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.058</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>66</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>100</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>2</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>2</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>2</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>이현동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.001</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.4</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.001</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.067</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>-</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>104</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>3</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade />
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>평리동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.006</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.9</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.004</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.074</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>89</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>171</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>4</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>3</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>대명동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.007</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.8</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.003</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.083</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>54</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>113</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>3</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>2</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>노원동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.004</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.6</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.001</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.070</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>77</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>165</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>4</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Grade>1</o3Grade>
+10-29 20:31:27.093: D/LDK(10335):     <no2Grade>3</no2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Grade>3</pm10Grade>
+10-29 20:31:27.093: D/LDK(10335):    </item>
+10-29 20:31:27.093: D/LDK(10335):    <item>
+10-29 20:31:27.093: D/LDK(10335):     <stationName>신암동</stationName>
+10-29 20:31:27.093: D/LDK(10335):     <dataTime>2014-10-29 20:00</dataTime>
+10-29 20:31:27.093: D/LDK(10335):     <so2Value>0.003</so2Value>
+10-29 20:31:27.093: D/LDK(10335):     <coValue>0.1</coValue>
+10-29 20:31:27.093: D/LDK(10335):     <o3Value>0.011</o3Value>
+10-29 20:31:27.093: D/LDK(10335):     <no2Value>0.045</no2Value>
+10-29 20:31:27.093: D/LDK(10335):     <pm10Value>39</pm10Value>
+10-29 20:31:27.093: D/LDK(10335):     <khaiValue>75</khaiValue>
+10-29 20:31:27.093: D/LDK(10335):     <khaiGrade>2</khaiGrade>
+10-29 20:31:27.093: D/LDK(10335):     <so2Grade>1</so2Grade>
+10-29 20:31:27.093: D/LDK(10335):     <coGrade>1</coGrade>
+10-29 20:31:27.093: D/LDK(10335):     <o3Gra
+
+* 미세먼지 예보
+10-29 20:38:53.869: D/LDK(11632): <?xml version='1.0' encoding='utf-8' ?>
+10-29 20:38:53.869: D/LDK(11632): <response>
+10-29 20:38:53.869: D/LDK(11632):  <header>
+10-29 20:38:53.869: D/LDK(11632):   <resultCode>00</resultCode>
+10-29 20:38:53.869: D/LDK(11632):   <resultMsg>NORMAL SERVICE.</resultMsg>
+10-29 20:38:53.869: D/LDK(11632):  </header>
+10-29 20:38:53.869: D/LDK(11632):  <body>
+10-29 20:38:53.869: D/LDK(11632):   <items>
+10-29 20:38:53.869: D/LDK(11632):    <item>
+10-29 20:38:53.869: D/LDK(11632):     <dataTime>2014-10-29 11시 발표</dataTime>
+10-29 20:38:53.869: D/LDK(11632):     <informCode>PM10</informCode>
+10-29 20:38:53.869: D/LDK(11632):     <informOverall>▶ [PM10] 전 권역은 ‘보통’(일평균 31~80㎍/㎥)으로 예상됨.
+10-29 20:38:53.869: D/LDK(11632):    다만, 수도권의 경우, 야간에 일시적으로 ‘약간나쁨’(일평균 81~120㎍/㎥) 수준의 농도가 나타날 수 있음.
+10-29 20:38:53.869: D/LDK(11632): ▶ [PM2.5] PM10과 동일할 것으로 예상됨.</informOverall>
+10-29 20:38:53.869: D/LDK(11632):     <informCause>▶ 오늘(29일) 우리나라 미세먼지 일평균 농도는 전 권역 ‘보통’으로 예상됨.
+10-29 20:38:53.869: D/LDK(11632): ▶ 다만, 수도권의 경우, 대기정체로 인해 야간에 일시적으로 ‘약간나쁨’ 수준의 농도가 나타날 수 있음.</informCause>
+10-29 20:38:53.869: D/LDK(11632):     <informGrade>수도권 : 보통,제주권 : 보통,영남권 : 보통,호남권 : 보통,충청권 : 보통,강원권 : 보통</informGrade>
+10-29 20:38:53.869: D/LDK(11632):     <actionKnack />
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl1>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=1487.bmp</imageUrl1>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl2>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=2489.bmp</imageUrl2>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl3>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=3490.bmp</imageUrl3>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl4>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=4493.bmp</imageUrl4>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl5>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=5492.bmp</imageUrl5>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl6>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=6489.bmp</imageUrl6>
+10-29 20:38:53.869: D/LDK(11632):     <informData>2014-10-29</informData>
+10-29 20:38:53.869: D/LDK(11632):    </item>
+10-29 20:38:53.869: D/LDK(11632):    <item>
+10-29 20:38:53.869: D/LDK(11632):     <dataTime>2014-10-29 17시 발표</dataTime>
+10-29 20:38:53.869: D/LDK(11632):     <informCode>PM10</informCode>
+10-29 20:38:53.869: D/LDK(11632):     <informOverall>▶ [PM10] 전 권역은 ‘보통’(일평균 31~80 ㎍/㎥)으로 예상됨.
+10-29 20:38:53.869: D/LDK(11632):     다만, 수도권의 경우, 야간에 일시적으로 ‘약간나쁨’(일평균 81~120 ㎍/㎥) 수준의 농도가 나타날 수 있음.
+10-29 20:38:53.869: D/LDK(11632): ▶ [PM2.5] 전 권역 ‘보통’(일평균 16~40 ㎍/㎥)으로 예상됨.</informOverall>
+10-29 20:38:53.869: D/LDK(11632):     <informCause>▶ [PM10] 내일(30일) 우리나라 미세먼지 일평균 농도는 전 권역 ‘보통’으로 예상됨. 다만, 수도권의 경우, 대기정체로 인해 야간에 일시적으로 ‘약간나쁨’ 수준의 농도가 나타날 수 있음.
+10-29 20:38:53.869: D/LDK(11632): ▶  [PM2.5] 대기정체로 인해 오늘에 비해 농도는 증가할 수 있으나 전 권역 ‘보통’ 으로 예상됨</informCause>
+10-29 20:38:53.869: D/LDK(11632):     <informGrade>수도권 : 보통,제주권 : 보통,영남권 : 보통,호남권 : 보통,충청권 : 보통,강원권 : 보통</informGrade>
+10-29 20:38:53.869: D/LDK(11632):     <actionKnack />
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl1>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=1488.bmp</imageUrl1>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl2>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=2490.bmp</imageUrl2>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl3>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=3491.bmp</imageUrl3>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl4>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=4494.bmp</imageUrl4>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl5>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=5493.bmp</imageUrl5>
+10-29 20:38:53.869: D/LDK(11632):     <imageUrl6>http://www.airkorea.or.kr/airkorea_ad/pm10/down.jsp?filename=6490.bmp</imageUrl6>
+10-29 20:38:53.869: D/LDK(11632):     <informData>2014-10-30</informData>
+10-29 20:38:53.869: D/LDK(11632):    </item>
+10-29 20:38:53.869: D/LDK(11632):   </items>
+10-29 20:38:53.869: D/LDK(11632):   <totalCount>2</totalCount>
+10-29 20:38:53.869: D/LDK(11632):  </body>
+10-29 20:38:53.869: D/LDK(11632): </response>
+
+
+* 자외선
+<?xml version='1.0' encoding='utf-8' ?>
+<Response>
+	<Header>
+		<SuccessYN>Y</SuccessYN>
+		<ReturnCode>00</ReturnCode>
+		<ErrMsg />
+	</Header>
+	<Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="idxBody">
+		<IndexModel>
+			<code>A07</code>
+			<areaNo>1100000000</areaNo>
+			<date>2014102918</date>
+			<today />
+			<tomorrow>2</tomorrow>
+			<theDayAfterTomorrow>2</theDayAfterTomorrow>
+		</IndexModel>
+	</Body>
+</Response>
+
+

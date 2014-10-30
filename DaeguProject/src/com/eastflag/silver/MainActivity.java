@@ -2,10 +2,6 @@ package com.eastflag.silver;
 
 import java.util.ArrayList;
 
-import com.eastflag.silver.R;
-import com.eastflag.silver.fragment._1_1_Fragment;
-import com.eastflag.silver.fragment._2_1_Fragment;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -21,11 +17,20 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.eastflag.silver.fragment._1_1_Fragment;
+import com.eastflag.silver.fragment._2_1_Fragment;
+import com.eastflag.silver.fragment._4_1_Fragment;
+import com.eastflag.silver.fragment._4_2_Fragment;
+import com.eastflag.silver.fragment._4_3_Fragment;
+
 public class MainActivity extends Activity {
 
 	private static final int FRAGMENT_AUTO = 1;
 	private static final int FRAGMENT_11 = 11;
 	private static final int FRAGMENT_21 = 21;
+	private static final int FRAGMENT_41 = 41;
+	private static final int FRAGMENT_42 = 42;
+	private static final int FRAGMENT_43 = 43;
 
 	private FragmentManager mFm;
 	private Fragment mFragment;
@@ -103,6 +108,18 @@ public class MainActivity extends Activity {
 					switch(childPosition) {
 					case 0:
 						showSubmenu(FRAGMENT_21);
+						break;
+					}
+				case 3:
+					switch(childPosition) {
+					case 0:
+						showSubmenu(FRAGMENT_41);
+						break;
+					case 1:
+						showSubmenu(FRAGMENT_42);
+						break;
+					case 2:
+						showSubmenu(FRAGMENT_43);
 						break;
 					}
 				}
@@ -209,6 +226,24 @@ public class MainActivity extends Activity {
 		case FRAGMENT_21:
 			mFragment = new _2_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_21)).commit();
+			mSubTab.setText("");
+			break;
+			
+		case FRAGMENT_41:
+			mFragment = new _4_1_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_41)).commit();
+			mSubTab.setText("");
+			break;
+			
+		case FRAGMENT_42:
+			mFragment = new _4_2_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_42)).commit();
+			mSubTab.setText("");
+			break;
+			
+		case FRAGMENT_43:
+			mFragment = new _4_3_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_43)).commit();
 			mSubTab.setText("");
 			break;
 		}
