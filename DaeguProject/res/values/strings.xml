@@ -3,5 +3,6 @@
 
     <string name="app_name">SILVER G</string>
     <string name="action_settings">settings</string>
+    <string name="question">?</string>
 
 </resources>
