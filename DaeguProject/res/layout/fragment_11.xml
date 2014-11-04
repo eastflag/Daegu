@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp" >
+    android:padding="5dp" >
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,43 +55,74 @@
     </LinearLayout>
     
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:orientation="horizontal">
-        
-        <RelativeLayout
-	        android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"  >
+        android:layout_width="match_parent" android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:gravity="center" >
+	    <RelativeLayout
+	     	android:layout_width="0dp" android:layout_weight="1" android:layout_height="110dp" 
+	     	android:layout_marginRight="5dp" >
+	
+		    <TextView 
+		         android:id="@+id/answerTwo"
+		         android:layout_centerHorizontal="true" android:layout_alignParentTop="true"
+		         android:layout_width="45dp" android:layout_height="45dp"
+		         android:text="\?"  android:textSize="20sp" android:gravity="center" android:textStyle="bold"
+		         android:background="@drawable/input" />
+		    <TextView 
+		         android:id="@+id/answerOne"
+		         android:layout_toLeftOf="@id/answerTwo" android:layout_alignTop="@id/answerTwo" android:layout_marginRight="10dp"
+		         android:layout_width="45dp" android:layout_height="45dp"
+		         android:text="\?" android:textSize="20sp" android:gravity="center" android:textStyle="bold"
+		         android:background="@drawable/input" />
+		     <TextView 
+		         android:id="@+id/answerThree"
+		         android:layout_toRightOf="@id/answerTwo" android:layout_alignTop="@id/answerTwo" android:layout_marginLeft="10dp"
+		         android:layout_width="45dp" android:layout_height="45dp"
+		         android:text="\?"  android:textSize="20sp" android:gravity="center" android:textStyle="bold"
+		         android:background="@drawable/input" />
+		     <TextView 
+		         android:id="@+id/tvResult"
+		         android:layout_below="@id/answerTwo"   android:layout_centerHorizontal="true"
+		         android:layout_marginTop="10dp"
+		         android:layout_width="wrap_content" android:layout_height="wrap_content"
+		         android:text="xxxx xxxx xxxx"  android:textSize="20sp" android:gravity="center" android:textStyle="bold" />
+	    </RelativeLayout>
+	    
+	    <FrameLayout 
+	        android:layout_width="0dp" android:layout_weight="1.2"  android:layout_height="match_parent"
+	        android:background="@drawable/input">
+	    	<LinearLayout
+		        android:id="@+id/rootHistory"
+			    android:layout_width="match_parent" android:layout_height="match_parent" 
+			    android:orientation="vertical" >
+			    <include layout="@layout/fragment_11_history"/>
+			    <LinearLayout
+		            style="@style/Line"
+		            android:layout_marginBottom="3dp" android:layout_marginTop="3dp" />
+		    	<ListView 
+		    	    android:id="@+id/listHistory"
+		    	    android:layout_width="match_parent" android:layout_height="wrap_content"
+		    	    android:divider="@drawable/list_divider" />
+		    </LinearLayout>
+	        <LinearLayout
+		        android:id="@+id/rootVictory" android:visibility="invisible"
+			    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+			    android:orientation="vertical"
+			    android:layout_gravity="center" android:gravity="center">
+		    	<TextView 
+		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+		    	    android:text="Victory!!!" android:textSize="30sp" />
+		    	<Button 
+		    	    android:id="@+id/btnRestart"
+		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+		    	    android:layout_marginTop="20dp"
+		    	    android:text="다시하기" android:textSize="25sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
+		    	    android:padding="10dp"
+		    	    android:background="@drawable/color_red" />
+		    </LinearLayout>
+	    </FrameLayout>
 
-	       <TextView 
-	            android:id="@+id/answerTwo"
-	            android:layout_centerInParent="true"
-	            android:layout_width="45dp" android:layout_height="45dp"
-	            android:text="@string/question"  android:textSize="20sp" android:gravity="center" android:textStyle="bold"
-	            android:background="@drawable/input" />
-	       <TextView 
-	            android:id="@+id/answerOne"
-	            android:layout_toLeftOf="@id/answerTwo" android:layout_alignTop="@id/answerTwo" android:layout_marginRight="10dp"
-	            android:layout_width="45dp" android:layout_height="45dp"
-	            android:text="@string/question" android:textSize="20sp" android:gravity="center" android:textStyle="bold"
-	            android:background="@drawable/input" />
-	        <TextView 
-	            android:id="@+id/answerThree"
-	            android:layout_toRightOf="@id/answerTwo" android:layout_alignTop="@id/answerTwo" android:layout_marginLeft="10dp"
-	            android:layout_width="45dp" android:layout_height="45dp"
-	            android:text="@string/question"  android:textSize="20sp" android:gravity="center" android:textStyle="bold"
-	            android:background="@drawable/input" />
-        </RelativeLayout>
-        
-        <LinearLayout
-	        android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" 
-	        android:orientation="vertical" >
-        	<ListView 
-        	    android:layout_width="match_parent" android:layout_height="wrap_content">
-        	    
-        	</ListView>
-        </LinearLayout>
-        
-    </LinearLayout>
+	</LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content"
