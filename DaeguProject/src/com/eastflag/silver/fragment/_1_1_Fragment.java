@@ -1,6 +1,8 @@
 package com.eastflag.silver.fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -21,6 +23,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.eastflag.silver.R;
+import com.eastflag.silver.adapter.BaseballAdapter;
+import com.eastflag.silver.database.MySqlController;
+import com.eastflag.silver.dto.BaseballVO;
 
 public class _1_1_Fragment extends Fragment {
 	private final static int MSG_RESET_ANSWER = 1;
@@ -274,6 +279,19 @@ public class _1_1_Fragment extends Fragment {
 			rootHistory.setVisibility(View.INVISIBLE);
 			rootVictory.setVisibility(View.VISIBLE);
 			//랭킹스코어 기록
+	        //DB에 해당 내용 저장
+	        MySqlController controller = new MySqlController(getActivity());
+	        controller.open();
+	        
+	        BaseballVO baseball = new BaseballVO();
+	        baseball.setTime(mTime);
+	        baseball.setHit(mHit);
+		    Date dt = new Date();
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a"); 
+		    baseball.setCreated_date(sdf.format(dt).toString());
+	        
+		    controller.insertBaseball(baseball);
+		    controller.close();
 		}
 	}
 	
@@ -282,6 +300,7 @@ public class _1_1_Fragment extends Fragment {
 		answerOne.setText("?");
 		answerTwo.setText("?");
 		answerThree.setText("?");
+		tvTimer.setText("00:00");
 		
 		mHit = 0;
 		mTime = 0;
@@ -289,11 +308,20 @@ public class _1_1_Fragment extends Fragment {
 		mAdapter.notifyDataSetChanged();
 		rootHistory.setVisibility(View.VISIBLE);
 		rootVictory.setVisibility(View.INVISIBLE);
+		mHandler.sendEmptyMessageDelayed(MSG_TIMER, 1000);
 	}
 	
 	private void showRecord() {
+		MySqlController controller = new MySqlController(getActivity());
+		controller.open();
+		
+		ArrayList<BaseballVO> baseballList = controller.selectBasebal();
+		BaseballAdapter adapter = new BaseballAdapter(getActivity(), baseballList);
+		
 		View view = View.inflate(getActivity(), R.layout.fragment_11_record, null);
 		ListView listview = (ListView) view.findViewById(R.id.listRecord);
+		listview.setAdapter(adapter);
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setView(view)
 			.setPositiveButton("OK", new DialogInterface.OnClickListener() {
