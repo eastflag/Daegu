@@ -13,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,18 +29,22 @@ public class _1_2_Fragment extends Fragment {
 	private static final int STAGE_1 = 6;
 	private static final int STAGE_2 = 8;
 	private static final int STAGE_3 = 10;
-	private static final int STAGE_4 = 12;
+	private static final int STAGE_FINAL = 12;
 	
 	private int mWidth = 1080;
 	
 	private View mView;
 	private TextView tvTimer, tvLimit, tvScore, tvStage;
 	private GridView mGridView;
+	private LinearLayout rootVictory;
+	private TextView tvResult;
+	private Button btnRestart;
 	
 	private int mTime;
 	private int mLimit = 10; //10회까지 시도
 	private int mScore;
 	private int mStage = 1; //최초 1단계
+	private boolean mVictory;
 	
 	private int mPair; //1단계:6쌍, 2단계 8쌍, 3단계: 10쌍, 4단계:12쌍
 	private int mCorrectPair;
@@ -62,6 +68,17 @@ public class _1_2_Fragment extends Fragment {
 			}
 		}
 	};
+	
+	View.OnClickListener mClick = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch(v.getId()) {
+			case R.id.btnRestart:
+				restartGame();
+				break;
+			}
+		}
+	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,6 +89,11 @@ public class _1_2_Fragment extends Fragment {
 		tvScore = (TextView) mView.findViewById(R.id.tvScore);
 		tvStage = (TextView) mView.findViewById(R.id.tvStage);
 		mGridView = (GridView) mView.findViewById(R.id.gridview);
+		rootVictory = (LinearLayout) mView.findViewById(R.id.rootVictory);
+		tvResult = (TextView) mView.findViewById(R.id.tvResult);
+		btnRestart = (Button) mView.findViewById(R.id.btnRestart);
+		
+		btnRestart.setOnClickListener(mClick);
 		
 		mGridView.setAdapter(new ImageAdapter(STAGE_1));
 		mGridView.setNumColumns(4);
@@ -84,20 +106,49 @@ public class _1_2_Fragment extends Fragment {
 	
 	private void gameOver() {
 		//초기화
-	
+		rootVictory.setVisibility(View.VISIBLE);
+		mHandler.removeMessages(MSG_TIMER);
+		if(mVictory) {
+			tvResult.setText("Victory!!!");
+			if(mPair == STAGE_FINAL) {
+				btnRestart.setText("다시하기");
+			} else {
+				btnRestart.setText("다음 단계");
+			}
+		} else {
+			tvResult.setText("Fail!!!");
+			btnRestart.setText("다시하기");
+		}
+		
 	}
 	
-	private void restartGame(int stage) {
+	private void restartGame() {
+		//Next Stage
+		if(mVictory) {
+			if(mStage != STAGE_FINAL) {
+				++mStage;
+				mPair += 2;
+			}
+		} 
+		mGridView.setAdapter(new ImageAdapter(mPair));
+		int num = mPair<=8 ? 4 : 5;
+		mGridView.setNumColumns(num);
 		//초기화
+		rootVictory.setVisibility(View.GONE);
 		mTime = 0;
+		mCorrectPair = 0;
 		mHandler.sendEmptyMessageDelayed(MSG_TIMER, 1000);
-		mLimit = 10;
+		mLimit = 5 + 5 * mStage;
 		mScore = 0;
-		
+		tvTimer.setText(String.format("%02d:%02d", mTime/60, mTime%60));
+		tvLimit.setText(String.valueOf(mLimit));
+		tvScore.setText(String.valueOf(mScore));
+		tvStage.setText(String.format("%d단계", mStage));
 	}
 
 	@Override
 	public void onDestroyView() {
+		mHandler.removeMessages(MSG_TIMER);
 		super.onDestroyView();
 	}
 	
@@ -188,6 +239,7 @@ public class _1_2_Fragment extends Fragment {
 	                        //check game over
                     		if (mCorrectPair == mPair) {
                     			Log.d("LDK", "game over");
+                    			mVictory = true;
                     			gameOver();
                     		}
 	                    } else {
@@ -198,7 +250,12 @@ public class _1_2_Fragment extends Fragment {
 	                        int aux[] = {piece_up, pos};
 	                        SleepHide update = new SleepHide(getActivity(), self, aux);
 	                        Handler mHandler = new Handler();
-	                        mHandler.postDelayed(update, 2000);
+	                        mHandler.postDelayed(update, 1000);
+	                        //시도횟수가 0이면 game over
+	                        if(mLimit == 0) {
+	                        	mVictory = false;
+	                        	gameOver();
+	                        }
 	                    }
 
 	                    piece_up = -1;

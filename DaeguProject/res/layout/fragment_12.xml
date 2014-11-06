@@ -47,14 +47,31 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="1단계" android:textSize="20sp" android:layout_gravity="center" android:textStyle="bold"/>
     
-	<GridView
-	    android:id="@+id/gridview"
-	    android:layout_width="match_parent" 
-	    android:layout_height="match_parent"
-	    android:numColumns="auto_fit"
-	    android:verticalSpacing="2dp"
-	    android:horizontalSpacing="2dp"
-
-	    android:gravity="center" />
+	<FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+	    <GridView
+		    android:id="@+id/gridview" 
+		    android:layout_width="match_parent" android:layout_height="match_parent"
+		    android:numColumns="auto_fit"
+		    android:verticalSpacing="2dp" android:horizontalSpacing="2dp"
+		    android:gravity="center" />
+	    <LinearLayout
+	        android:id="@+id/rootVictory" android:visibility="gone"
+		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:orientation="vertical" android:padding="15dp"
+		    android:layout_gravity="center" android:gravity="center"
+		    android:background="@drawable/input">
+	    	<TextView 
+	    	    android:id="@+id/tvResult"
+	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:text="Victory!!!" android:textSize="30sp" />
+	    	<Button 
+	    	    android:id="@+id/btnRestart"
+	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:layout_marginTop="20dp"
+	    	    android:text="다시하기" android:textSize="25sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
+	    	    android:padding="10dp"
+	    	    android:background="@drawable/color_red" />
+	    </LinearLayout>
+	</FrameLayout>
 
 </LinearLayout>
