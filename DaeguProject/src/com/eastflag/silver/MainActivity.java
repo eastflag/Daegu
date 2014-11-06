@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.eastflag.silver.fragment._1_1_Fragment;
+import com.eastflag.silver.fragment._1_2_Fragment;
 import com.eastflag.silver.fragment._2_1_Fragment;
 import com.eastflag.silver.fragment._4_1_Fragment;
 import com.eastflag.silver.fragment._4_2_Fragment;
@@ -27,6 +28,7 @@ public class MainActivity extends Activity {
 
 	private static final int FRAGMENT_AUTO = 1;
 	private static final int FRAGMENT_11 = 11;
+	private static final int FRAGMENT_12 = 12;
 	private static final int FRAGMENT_21 = 21;
 	private static final int FRAGMENT_41 = 41;
 	private static final int FRAGMENT_42 = 42;
@@ -102,7 +104,14 @@ public class MainActivity extends Activity {
 				Log.d("LDK", "g:" + groupPosition + "c:" + childPosition);
 				switch(groupPosition) {
 				case 0:
-					showSubmenu(FRAGMENT_11);
+					switch(childPosition) {
+					case 0:
+						showSubmenu(FRAGMENT_11);
+						break;
+					case 1:
+						showSubmenu(FRAGMENT_12);
+						break;
+					}
 					break;
 				case 1:
 					switch(childPosition) {
@@ -220,7 +229,13 @@ public class MainActivity extends Activity {
 		case FRAGMENT_11:
 			mFragment = new _1_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_11)).commit();
-			mSubTab.setText("");
+			mSubTab.setText("사고력게임");
+			break;
+			
+		case FRAGMENT_12:
+			mFragment = new _1_2_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_12)).commit();
+			mSubTab.setText("기억력게임");
 			break;
 
 		case FRAGMENT_21:
