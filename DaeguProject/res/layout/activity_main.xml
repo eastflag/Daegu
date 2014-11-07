@@ -4,23 +4,92 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView 
-        android:id="@+id/tv_tab" android:layout_width="match_parent" android:layout_height="40dp" 
-        android:layout_margin="1dp"
-        android:gravity="center" android:textColor="#ffffff" android:textSize="18sp" android:text="test"
-        android:visibility="gone"
-        android:background="@drawable/tab_s_on"/>
+	<LinearLayout android:id="@+id/tab_group" android:layout_width="match_parent" android:layout_height="50dp"   
+		android:orientation="horizontal" android:layout_gravity="right|center_vertical"
+		android:visibility="gone">
+		<TextView 
+		    android:id="@+id/tab_1" 
+		    android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" 
+		    android:gravity="center" android:textColor="#ffffff" android:textSize="18sp"
+		    android:paddingLeft="10dp" android:paddingRight="10dp" android:background="@drawable/tab_s_on"/>
+		<TextView 
+		    android:id="@+id/tab_2" 
+		    android:layout_marginLeft="1dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" 
+		    android:gravity="center" android:textColor="#ffffff" android:textSize="18sp"
+		    android:paddingLeft="10dp" android:paddingRight="10dp"  android:background="@drawable/tab_s_off"/>
+	</LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30dp"
         android:background="@null" android:orientation="vertical"  android:gravity="center"
         android:id="@+id/main_menu">
 
-        <ExpandableListView
-            android:id="@+id/elv_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ExpandableListView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:id="@+id/ll_1"
+                style="@style/PhoneMenuButton" >
+                <ImageView
+                    android:id="@+id/iv_auto"
+                    style="@style/MenuImage"
+                    android:background="@drawable/menuicon_1" />
+                <TextView
+                    android:id="@+id/tv_auto"
+                    style="@style/MenuText"
+                    android:text="@string/menu_1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_2"
+                style="@style/PhoneMenuButton"
+                android:layout_marginLeft="30dp">
+                <ImageView
+                    android:id="@+id/iv_ventilation"
+                    style="@style/MenuImage"
+                    android:background="@drawable/menuicon_2" />
+                <TextView
+                    android:id="@+id/tv_ventilation"
+                    style="@style/MenuText"
+                    android:text="@string/menu_2" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:id="@+id/ll_3"
+                style="@style/PhoneMenuButton" >
+                <ImageView
+                    android:id="@+id/iv_smart"
+                    style="@style/MenuImage"
+                    android:background="@drawable/menuicon_3" />
+                <TextView
+                    android:id="@+id/tv_smart"
+                    style="@style/MenuText"
+                    android:text="@string/menu_3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_4"
+                style="@style/PhoneMenuButton"
+                android:layout_marginLeft="30dp">
+                <ImageView
+                    android:id="@+id/iv_security"
+                    style="@style/MenuImage"
+                    android:background="@drawable/menuicon_4" />
+                <TextView
+                    android:id="@+id/tv_security"
+                    style="@style/MenuText"
+                    android:text="@string/menu_4" />
+            </LinearLayout>
+        </LinearLayout>
         
     </LinearLayout>
     

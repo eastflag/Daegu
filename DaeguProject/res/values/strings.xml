@@ -3,5 +3,9 @@
 
     <string name="app_name">SILVER G</string>
     <string name="action_settings">settings</string>
+    <string name="menu_1">게임</string>
+    <string name="menu_2">유용한 앱정보</string>
+    <string name="menu_3">스마트폰 사용설명</string>
+    <string name="menu_4">외출정보</string>
 
 </resources>

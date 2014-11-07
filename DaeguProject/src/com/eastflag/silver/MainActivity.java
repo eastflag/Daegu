@@ -1,35 +1,31 @@
 package com.eastflag.silver;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.eastflag.silver.fragment._1_1_Fragment;
 import com.eastflag.silver.fragment._1_2_Fragment;
 import com.eastflag.silver.fragment._2_1_Fragment;
+import com.eastflag.silver.fragment._3_1_Fragment;
 import com.eastflag.silver.fragment._4_1_Fragment;
 import com.eastflag.silver.fragment._4_2_Fragment;
 import com.eastflag.silver.fragment._4_3_Fragment;
 
 public class MainActivity extends Activity {
 
-	private static final int FRAGMENT_AUTO = 1;
 	private static final int FRAGMENT_11 = 11;
 	private static final int FRAGMENT_12 = 12;
 	private static final int FRAGMENT_21 = 21;
+	private static final int FRAGMENT_31 = 31;
 	private static final int FRAGMENT_41 = 41;
 	private static final int FRAGMENT_42 = 42;
 	private static final int FRAGMENT_43 = 43;
@@ -38,10 +34,67 @@ public class MainActivity extends Activity {
 	private Fragment mFragment;
 
 	private LinearLayout mMainMenu;
-	private TextView mSubTab;
+	private LinearLayout mTabGroup;
+	private TextView tab_1, tab_2;
 	
-	private ArrayList<String> mGroupList = null;
-	private ArrayList<ArrayList<String>> mChildList = null;
+	View.OnClickListener mClick = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch(v.getId()) {
+			case R.id.ll_1:
+				showSubmenu(FRAGMENT_11);
+				tab_1.setTag(FRAGMENT_11);
+				tab_2.setTag(FRAGMENT_12);
+				break;
+				
+			case R.id.ll_2:
+				showSubmenu(FRAGMENT_21);
+				tab_1.setTag(FRAGMENT_21);
+				break;
+				
+			case R.id.ll_3:
+				showSubmenu(FRAGMENT_31);
+				tab_1.setTag(FRAGMENT_31);
+				break;
+				
+			case R.id.ll_4:
+				showSubmenu(FRAGMENT_41);
+				tab_1.setTag(FRAGMENT_41);
+				tab_2.setTag(FRAGMENT_42);
+				break;
+			}
+		}
+	};
+	
+	View.OnClickListener mTabClick = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			int type = (Integer) v.getTag();
+			switch(type) {
+			case FRAGMENT_11:
+				showSubmenu(FRAGMENT_11);
+				break;
+			case FRAGMENT_12:
+				showSubmenu(FRAGMENT_12);
+				break;
+			case FRAGMENT_21:
+				showSubmenu(FRAGMENT_21);
+				break;
+			case FRAGMENT_31:
+				showSubmenu(FRAGMENT_31);
+				break;
+			case FRAGMENT_41:
+				showSubmenu(FRAGMENT_41);
+				break;
+			case FRAGMENT_42:
+				showSubmenu(FRAGMENT_42);
+				break;
+			case FRAGMENT_43:
+				showSubmenu(FRAGMENT_43);
+				break;
+			}
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,121 +102,18 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		mMainMenu = (LinearLayout) findViewById(R.id.main_menu);
-		mSubTab = (TextView) findViewById(R.id.tv_tab);
+		mTabGroup = (LinearLayout) findViewById(R.id.tab_group);
+		tab_1 = (TextView) findViewById(R.id.tab_1);
+		tab_2 = (TextView) findViewById(R.id.tab_2);
+		
 		mFm = getFragmentManager();
 		
-		mListView = (ExpandableListView) findViewById(R.id.elv_list);
-
-		mGroupList = new ArrayList<String>();
-		mChildList = new ArrayList<ArrayList<String>>();
-
-		mGroupList.add("1. 게임");
-		mGroupList.add("2. 유용한 앱 정보");
-		mGroupList.add("3. 스마트폰 사용 설명");
-		mGroupList.add("4. 외출정보");
-		
-		ArrayList<String> mChildListContent1 = new ArrayList<String>();
-		mChildListContent1.add("1) 야구 게임");
-		mChildListContent1.add("2) 기억력 게임");
-		mChildList.add(mChildListContent1);
-		
-		ArrayList<String> mChildListContent2 = new ArrayList<String>();
-		mChildListContent2.add("1) 교통");
-		mChildListContent2.add("2) 지도, 길찾기");
-		mChildListContent2.add("3) 건강관리");
-		mChildListContent2.add("4) 추천게임");
-		mChildList.add(mChildListContent2);
-		
-		ArrayList<String> mChildListContent3 = new ArrayList<String>();
-		mChildListContent3.add("1) 인터넷 사용법");
-		mChildListContent3.add("2) 카카오톡 사용법");
-		mChildListContent3.add("3) 다운로드 방법");
-		mChildList.add(mChildListContent3);
-		
-		ArrayList<String> mChildListContent4 = new ArrayList<String>();
-		mChildListContent4.add("1) 방사능 지수 확인");
-		mChildListContent4.add("2) 미세먼지 확인");
-		mChildListContent4.add("3) 자외선 지수 확인");
-		mChildList.add(mChildListContent4);
-
-		mListView.setAdapter(new BaseExpandableAdapter(this, mGroupList, mChildList));
-
-		// 그룹 클릭 했을 경우 이벤트
-/*		mListView.setOnGroupClickListener(new OnGroupClickListener() {
-			@Override
-			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-				Toast.makeText(getApplicationContext(), "g click = " + groupPosition, Toast.LENGTH_SHORT).show();
-				return false;
-			}
-		});*/
-
-		// 차일드 클릭 했을 경우 이벤트
-		mListView.setOnChildClickListener(new OnChildClickListener() {
-			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,int groupPosition, int childPosition, long id) {
-				Log.d("LDK", "g:" + groupPosition + "c:" + childPosition);
-				switch(groupPosition) {
-				case 0:
-					switch(childPosition) {
-					case 0:
-						showSubmenu(FRAGMENT_11);
-						break;
-					case 1:
-						showSubmenu(FRAGMENT_12);
-						break;
-					}
-					break;
-				case 1:
-					switch(childPosition) {
-					case 0:
-						showSubmenu(FRAGMENT_21);
-						break;
-					}
-				case 3:
-					switch(childPosition) {
-					case 0:
-						showSubmenu(FRAGMENT_41);
-						break;
-					case 1:
-						showSubmenu(FRAGMENT_42);
-						break;
-					case 2:
-						showSubmenu(FRAGMENT_43);
-						break;
-					}
-				}
-				return false;
-			}
-		});
-
-/*		// 그룹이 닫힐 경우 이벤트
-		mListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-			@Override
-			public void onGroupCollapse(int groupPosition) {
-				Toast.makeText(getApplicationContext(),
-						"g Collapse = " + groupPosition, Toast.LENGTH_SHORT)
-						.show();
-			}
-		});
-
-		// 그룹이 열릴 경우 이벤트
-		mListView.setOnGroupExpandListener(new OnGroupExpandListener() {
-			@Override
-			public void onGroupExpand(int groupPosition) {
-				Toast.makeText(getApplicationContext(),
-						"g Expand = " + groupPosition, Toast.LENGTH_SHORT)
-						.show();
-			}
-		});*/
-	}
-
-	/*
-	 * Layout
-	 */
-	private ExpandableListView mListView;
-
-	private void setLayout() {
-		mListView = (ExpandableListView) findViewById(R.id.elv_list);
+		findViewById(R.id.ll_1).setOnClickListener(mClick);
+		findViewById(R.id.ll_2).setOnClickListener(mClick);
+		findViewById(R.id.ll_3).setOnClickListener(mClick);
+		findViewById(R.id.ll_4).setOnClickListener(mClick);
+		tab_1.setOnClickListener(mTabClick);
+		tab_2.setOnClickListener(mTabClick);
 	}
 
 	@Override
@@ -223,49 +173,76 @@ public class MainActivity extends Activity {
 	// show sub menu
 	private void showSubmenu(int tab) {
 		mMainMenu.setVisibility(View.GONE);
-		mSubTab.setVisibility(View.VISIBLE);
+		mTabGroup.setVisibility(View.VISIBLE);
 
 		switch (tab) {
 		case FRAGMENT_11:
 			mFragment = new _1_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_11)).commit();
-			mSubTab.setText("사고력게임");
+			refreshTab(0, "사고력 게임", "기억력 게임");
 			break;
 			
 		case FRAGMENT_12:
 			mFragment = new _1_2_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_12)).commit();
-			mSubTab.setText("기억력게임");
+			refreshTab(1, "사고력 게임", "기억력 게임");
 			break;
 
 		case FRAGMENT_21:
 			mFragment = new _2_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_21)).commit();
-			mSubTab.setText("");
+			refreshTab(0, "유용한 앱정보");
+			break;
+			
+		case FRAGMENT_31:
+			mFragment = new _3_1_Fragment();
+			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_31)).commit();
+			refreshTab(0, "스마트폰 사용설명");
 			break;
 			
 		case FRAGMENT_41:
 			mFragment = new _4_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_41)).commit();
-			mSubTab.setText("");
+			tab_1.setText("");
 			break;
 			
 		case FRAGMENT_42:
 			mFragment = new _4_2_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_42)).commit();
-			mSubTab.setText("");
+			tab_1.setText("");
 			break;
 			
 		case FRAGMENT_43:
 			mFragment = new _4_3_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_43)).commit();
-			mSubTab.setText("");
+			tab_1.setText("");
 			break;
 		}
 	}
 
 	private void hideSubmenu() {
 		mMainMenu.setVisibility(View.VISIBLE);
-		mSubTab.setVisibility(View.GONE);
+		mTabGroup.setVisibility(View.GONE);
+	}
+	
+	//선택된 탭의 위치(인덱스는 0부터), 모든 탭의 스트링
+	private void refreshTab(int positionOfOn, String ... str) {
+		if(str.length == 2) {
+			tab_1.setText(str[0]);
+			tab_2.setText(str[1]);
+			if(positionOfOn == 0) {
+				tab_1.setBackgroundResource(R.drawable.tab_s_on);
+				tab_1.setVisibility(View.VISIBLE);
+			} else {
+				tab_1.setBackgroundResource(R.drawable.tab_s_off);
+				tab_2.setVisibility(View.VISIBLE);
+			}
+		} else {
+			tab_1.setText(str[0]);
+			tab_1.setBackgroundResource(R.drawable.tab_s_on);
+			tab_1.setVisibility(View.VISIBLE);
+			tab_2.setBackgroundResource(R.drawable.tab_s_off);
+			tab_2.setVisibility(View.GONE);
+		}
 	}
 }

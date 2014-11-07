@@ -18,12 +18,12 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.eastflag.silver.R;
 
-public class _2_1_Fragment extends Fragment {
+public class _3_1_Fragment extends Fragment {
 	
 	private View mView;
 	private WebView mWebView;
 	
-	public _2_1_Fragment () {
+	public _3_1_Fragment () {
 		
 	}
 
@@ -33,7 +33,7 @@ public class _2_1_Fragment extends Fragment {
 		
 		mWebView = (WebView) mView.findViewById(R.id.webview);
 		mWebView.getSettings().setJavaScriptEnabled(true);
-		mWebView.loadUrl("file:///android_asset/2main.html");
+		mWebView.loadUrl("file:///android_asset/3main.html");
 		
 		return mView;
 	}
