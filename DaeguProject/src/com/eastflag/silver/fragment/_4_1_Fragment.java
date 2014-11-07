@@ -38,7 +38,7 @@ public class _4_1_Fragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.fragment_11, null);
+		mView = inflater.inflate(R.layout.fragment_41, null);
 		
 		mAq = new AQuery(mView);
 		
