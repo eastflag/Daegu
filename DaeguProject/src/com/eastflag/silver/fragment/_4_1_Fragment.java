@@ -1,43 +1,16 @@
 package com.eastflag.silver.fragment;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.List;
-import java.util.Locale;
-
 import android.app.Fragment;
-import android.content.Context;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.NumberPicker;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
-import com.androidquery.AQuery;
-import com.androidquery.callback.AjaxCallback;
-import com.androidquery.callback.AjaxStatus;
-import com.androidquery.util.XmlDom;
-import com.eastflag.silver.Constant;
-import com.eastflag.silver.MainActivity;
 import com.eastflag.silver.R;
-import com.eastflag.silver.util.GPSTracker;
-import com.eastflag.silver.util.MyWebViewClient;
 
 public class _4_1_Fragment extends Fragment {
 	
@@ -47,6 +20,7 @@ public class _4_1_Fragment extends Fragment {
 
 	//private AQuery mAq;
 	private WebView mWebView;
+	private ProgressBar mProgressBar;
 	
 /*	private LocationManager mLocMan;
 	private String mProvider;
@@ -62,6 +36,7 @@ public class _4_1_Fragment extends Fragment {
 		mView = inflater.inflate(R.layout.fragment_41, null);
 		
 		//mAq = new AQuery(mView);
+		mProgressBar = (ProgressBar) mView.findViewById(R.id.progressbar);
 		
 		mWebView = (WebView) mView.findViewById(R.id.webview);
 		mWebView.setWebViewClient(new MyWebViewClient());
@@ -135,4 +110,23 @@ public class _4_1_Fragment extends Fragment {
 		}*/
 	}
 
+	class MyWebViewClient extends WebViewClient {
+		
+		@Override
+		public boolean shouldOverrideUrlLoading(WebView view, String url) {
+			return super.shouldOverrideUrlLoading(view, url);
+		}
+
+		@Override
+		public void onPageStarted(WebView view, String url, Bitmap favicon) {
+			mProgressBar.setVisibility(View.VISIBLE);
+			super.onPageStarted(view, url, favicon);
+		}
+
+		@Override
+		public void onPageFinished(WebView view, String url) {
+			mProgressBar.setVisibility(View.INVISIBLE);
+			super.onPageFinished(view, url);
+		}
+	}
 }
