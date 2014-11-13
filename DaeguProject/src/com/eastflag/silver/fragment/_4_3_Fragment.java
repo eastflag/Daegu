@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,13 @@ import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.XmlDom;
 import com.eastflag.silver.Constant;
 import com.eastflag.silver.R;
+import com.eastflag.silver.util.MyWebViewClient;
 
 public class _4_3_Fragment extends Fragment {
 	
 	private View mView;
-
+	private WebView mWebView;
+	
 	private AQuery mAq;
 	
 	
@@ -38,9 +41,17 @@ public class _4_3_Fragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.fragment_11, null);
+		mView = inflater.inflate(R.layout.fragment_41, null);
 		
-		mAq = new AQuery(mView);
+		mWebView = (WebView) mView.findViewById(R.id.webview);
+		mWebView.setWebViewClient(new MyWebViewClient());
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.loadUrl("http://m.kma.go.kr/m/forecast/forecast_03.jsp");
+		
+		mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
+		mWebView.getSettings().setSupportMultipleWindows(false);
+		
+		/*mAq = new AQuery(mView);
 		
 		String url = Constant.API_ULTRV + "?AreaNo=1100000000&serviceKey=";
 		try {
@@ -56,7 +67,7 @@ public class _4_3_Fragment extends Fragment {
 			public void callback(String url, XmlDom object, AjaxStatus status) {
 				Log.d("LDK", object.toString(1));
 			}
-		});
+		});*/
 		
 		return mView;
 	}

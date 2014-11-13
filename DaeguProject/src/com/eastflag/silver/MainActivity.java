@@ -21,6 +21,7 @@ import com.eastflag.silver.fragment._3_1_Fragment;
 import com.eastflag.silver.fragment._4_1_Fragment;
 import com.eastflag.silver.fragment._4_2_Fragment;
 import com.eastflag.silver.fragment._4_3_Fragment;
+import com.eastflag.silver.util.GPSTracker;
 
 public class MainActivity extends Activity {
 	
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
 
 	private LinearLayout mMainMenu;
 	private LinearLayout mTabGroup;
-	private TextView tab_1, tab_2;
+	private TextView tab_1, tab_2, tab_3;
 	
 	private HashMap<Integer, String> mInfo = new HashMap<Integer, String>();
 	
@@ -107,14 +108,15 @@ public class MainActivity extends Activity {
 		mInfo.put(FRAGMENT_12, "기억력 게임");
 		mInfo.put(FRAGMENT_21, "유용한 앱정보");
 		mInfo.put(FRAGMENT_31, "스마트폰 사용설명");
-		mInfo.put(FRAGMENT_41, "방사능 정보");
-		mInfo.put(FRAGMENT_42, "미세먼지 정보");
-		mInfo.put(FRAGMENT_43, "자외선 지수");
+		mInfo.put(FRAGMENT_41, "방사능");
+		mInfo.put(FRAGMENT_42, "미세먼지");
+		mInfo.put(FRAGMENT_43, "자외선");
 
 		mMainMenu = (LinearLayout) findViewById(R.id.main_menu);
 		mTabGroup = (LinearLayout) findViewById(R.id.tab_group);
 		tab_1 = (TextView) findViewById(R.id.tab_1);
 		tab_2 = (TextView) findViewById(R.id.tab_2);
+		tab_3 = (TextView) findViewById(R.id.tab_3);
 		
 		mFm = getFragmentManager();
 		
@@ -124,6 +126,7 @@ public class MainActivity extends Activity {
 		findViewById(R.id.ll_4).setOnClickListener(mClick);
 		tab_1.setOnClickListener(mTabClick);
 		tab_2.setOnClickListener(mTabClick);
+		tab_3.setOnClickListener(mTabClick);
 	}
 
 	@Override
@@ -213,17 +216,19 @@ public class MainActivity extends Activity {
 		case FRAGMENT_41:
 			mFragment = new _4_1_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_41)).commit();
-			refreshTab(0, FRAGMENT_41);
+			refreshTab(0, FRAGMENT_41, FRAGMENT_42, FRAGMENT_43);
 			break;
 			
 		case FRAGMENT_42:
 			mFragment = new _4_2_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_42)).commit();
+			refreshTab(1, FRAGMENT_41, FRAGMENT_42, FRAGMENT_43);
 			break;
 			
 		case FRAGMENT_43:
 			mFragment = new _4_3_Fragment();
 			mFm.beginTransaction().replace(R.id.container, mFragment, String.valueOf(FRAGMENT_43)).commit();
+			refreshTab(2, FRAGMENT_41, FRAGMENT_42, FRAGMENT_43);
 			break;
 		}
 	}
@@ -235,7 +240,30 @@ public class MainActivity extends Activity {
 	
 	//선택된 탭의 위치(인덱스는 0부터), 모든 탭의 스트링
 	private void refreshTab(int positionOfOn, int ... position) {
-		if(position.length == 2) {
+		if(position.length == 3) {
+			tab_1.setText(mInfo.get(position[0]));
+			tab_2.setText(mInfo.get(position[1]));
+			tab_3.setText(mInfo.get(position[2]));
+			tab_1.setTag(position[0]);
+			tab_2.setTag(position[1]);
+			tab_3.setTag(position[2]);
+			if(positionOfOn == 0) {
+				tab_1.setBackgroundResource(R.drawable.tab_s_on);
+				tab_2.setBackgroundResource(R.drawable.tab_s_off);
+				tab_3.setBackgroundResource(R.drawable.tab_s_off);
+			} else if(positionOfOn == 1) {
+				tab_1.setBackgroundResource(R.drawable.tab_s_off);
+				tab_2.setBackgroundResource(R.drawable.tab_s_on);
+				tab_3.setBackgroundResource(R.drawable.tab_s_off);
+			} else {
+				tab_1.setBackgroundResource(R.drawable.tab_s_off);
+				tab_2.setBackgroundResource(R.drawable.tab_s_off);
+				tab_3.setBackgroundResource(R.drawable.tab_s_on);
+			}
+			tab_1.setVisibility(View.VISIBLE);
+			tab_2.setVisibility(View.VISIBLE);
+			tab_3.setVisibility(View.VISIBLE);
+		} else if(position.length == 2) {
 			tab_1.setText(mInfo.get(position[0]));
 			tab_2.setText(mInfo.get(position[1]));
 			tab_1.setTag(position[0]);
@@ -249,13 +277,14 @@ public class MainActivity extends Activity {
 			}
 			tab_1.setVisibility(View.VISIBLE);
 			tab_2.setVisibility(View.VISIBLE);
+			tab_3.setVisibility(View.GONE);
 		} else {
 			tab_1.setText(mInfo.get(position[0]));
 			tab_1.setTag(position[0]);
 			tab_1.setBackgroundResource(R.drawable.tab_s_on);
 			tab_1.setVisibility(View.VISIBLE);
-			tab_2.setBackgroundResource(R.drawable.tab_s_off);
 			tab_2.setVisibility(View.GONE);
+			tab_3.setVisibility(View.GONE);
 		}
 	}
 }

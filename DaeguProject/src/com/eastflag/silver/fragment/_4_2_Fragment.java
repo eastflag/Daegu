@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -24,13 +25,14 @@ import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.XmlDom;
 import com.eastflag.silver.Constant;
 import com.eastflag.silver.R;
+import com.eastflag.silver.util.MyWebViewClient;
 
 public class _4_2_Fragment extends Fragment {
 	
 	private View mView;
 
 	private AQuery mAq;
-	
+	private WebView mWebView;
 	
 	public _4_2_Fragment () {
 		
@@ -38,11 +40,19 @@ public class _4_2_Fragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		mView = inflater.inflate(R.layout.fragment_11, null);
+		mView = inflater.inflate(R.layout.fragment_41, null);
 		
 		mAq = new AQuery(mView);
 		
-		String url = Constant.API_FINE_DUST + "?numOfRows=100&pageNo=1&sidoName=대구&serviceKey=";
+		mWebView = (WebView) mView.findViewById(R.id.webview);
+		mWebView.setWebViewClient(new MyWebViewClient());
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.loadUrl("http://m.airkorea.or.kr/sub/sub11.jsp");
+		
+		mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
+		mWebView.getSettings().setSupportMultipleWindows(false);
+		
+		/*String url = Constant.API_FINE_DUST + "?numOfRows=100&pageNo=1&sidoName=대구&serviceKey=";
 		try {
 			url +=  URLEncoder.encode(Constant.key, "utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -70,7 +80,7 @@ public class _4_2_Fragment extends Fragment {
 			public void callback(String url, XmlDom object, AjaxStatus status) {
 				Log.d("LDK", object.toString(1));
 			}
-		});
+		});*/
 		
 		return mView;
 	}

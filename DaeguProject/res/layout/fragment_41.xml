@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="5dp"
+    android:padding="2dp"
     android:orientation="vertical">
     
-    <TextView
+   <!--  <TextView
 	    android:id="@+id/tvLocation"
 	    android:layout_width="match_parent" android:layout_height="wrap_content" 
 	    android:gravity="center"
@@ -32,6 +32,10 @@
 		    android:gravity="center"
 		    android:text="자외선" android:padding="10dp"
 		    android:drawableTop="@drawable/icon_index_10000" android:background="@drawable/input"/>
-    </LinearLayout>
+    </LinearLayout> -->
+    
+    <WebView
+	    android:id="@+id/webview"
+	    android:layout_width="match_parent" android:layout_height="match_parent" />
 
 </LinearLayout>
