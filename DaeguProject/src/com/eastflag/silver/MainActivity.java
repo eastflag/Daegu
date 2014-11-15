@@ -1,6 +1,7 @@
 package com.eastflag.silver;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,6 +9,8 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +26,7 @@ import com.eastflag.silver.fragment._4_2_Fragment;
 import com.eastflag.silver.fragment._4_3_Fragment;
 import com.eastflag.silver.util.GPSTracker;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 	
 	private final static int FRAGMENT_11 = 11;
 	private final static int FRAGMENT_12 = 12;
@@ -41,6 +44,8 @@ public class MainActivity extends Activity {
 	private TextView tab_1, tab_2, tab_3;
 	
 	private HashMap<Integer, String> mInfo = new HashMap<Integer, String>();
+	
+	public TextToSpeech mTts;
 	
 	View.OnClickListener mClick = new View.OnClickListener() {
 		@Override
@@ -127,10 +132,16 @@ public class MainActivity extends Activity {
 		tab_1.setOnClickListener(mTabClick);
 		tab_2.setOnClickListener(mTabClick);
 		tab_3.setOnClickListener(mTabClick);
+		
+		mTts = new TextToSpeech(this, this);
 	}
 
 	@Override
 	protected void onDestroy() {
+        if (mTts != null) {
+        	mTts.stop();
+        	mTts.shutdown();
+        }
 		super.onDestroy();
 	}
 
@@ -287,4 +298,27 @@ public class MainActivity extends Activity {
 			tab_3.setVisibility(View.GONE);
 		}
 	}
+
+	@Override
+	public void onInit(int status) {
+		if (status == TextToSpeech.SUCCESS) {
+
+			int result = mTts.setLanguage(Locale.KOREA);
+
+			if (result == TextToSpeech.LANG_MISSING_DATA
+					|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
+				Log.e("TTS", "This Language is not supported");
+			} else {
+				// speakOut("");
+			}
+
+		} else {
+			Log.e("TTS", "Initilization Failed!");
+		}
+	}
+	
+    public void speakOut(String text) {
+
+        mTts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
 }

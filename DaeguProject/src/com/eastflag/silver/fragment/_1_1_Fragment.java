@@ -22,14 +22,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.eastflag.silver.MainActivity;
 import com.eastflag.silver.R;
+import com.eastflag.silver.SilverApplication;
 import com.eastflag.silver.adapter.BaseballAdapter;
 import com.eastflag.silver.database.MySqlController;
 import com.eastflag.silver.dto.BaseballVO;
 
 public class _1_1_Fragment extends Fragment {
 	private final static int MSG_RESET_ANSWER = 1;
-	private final static int MSG_TIMER = 2;
+	private final static int MSG_RESET_ANSWER_RESULT = 2;
+	private final static int MSG_TIMER = 3;
 	
 	private View mView;
 	private TextView tvTimer; //타이머
@@ -51,6 +54,8 @@ public class _1_1_Fragment extends Fragment {
 	private int mHit;
 	private int mTime;
 	
+	private MainActivity mMainActivity;
+	
 	public _1_1_Fragment () {
 		
 	}
@@ -67,6 +72,10 @@ public class _1_1_Fragment extends Fragment {
 				answerThree.setText("?");
 				break;
 				
+			case MSG_RESET_ANSWER_RESULT:
+				answerResult.setText("");
+				break;
+				
 			case MSG_TIMER:
 				++mTime;
 				tvTimer.setText(String.format("%02d:%02d", mTime/60, mTime%60));
@@ -80,6 +89,7 @@ public class _1_1_Fragment extends Fragment {
 	View.OnClickListener mClick = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
+			SilverApplication.sApp.soundButton();
 			switch(v.getId()) {
 			case R.id.numberZero:
 			case R.id.numberOne:
@@ -175,6 +185,8 @@ public class _1_1_Fragment extends Fragment {
 		mAnswer = String.valueOf(a) + String.valueOf(b) + String.valueOf(c);
 		Log.d("LDK", "mAnswer:" + mAnswer);
 		
+		mMainActivity = (MainActivity) getActivity();
+		
 		return mView;
 	}
 
@@ -214,12 +226,18 @@ public class _1_1_Fragment extends Fragment {
 		String c = String.valueOf(answerThree.getText().toString());
 		
 		if(a.equals("?") || b.equals("?") || c.equals("?")) {
-			answerResult.setText("3자리를 모두 입력하세요");
+			String text = "3자리를 모두 입력하세요";
+			answerResult.setText(text);
+			mMainActivity.speakOut(text);
+			mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
 			return;
 		}
 		
 		if(a.equals(b) || a.equals(c) || b.equals(c)) {
-			answerResult.setText("각각 다른 3자리를 입력하세요.");
+			String text = "각각 다른 3자리를 입력하세요";
+			answerResult.setText(text);
+			mMainActivity.speakOut(text);
+			mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
 			return;
 		}
 
@@ -257,6 +275,10 @@ public class _1_1_Fragment extends Fragment {
 		String input = answerOne.getText().toString() + answerTwo.getText().toString() + answerThree.getText().toString();
 		String result = String.format("%dS %dB", mStrike, mBall);
 		answerResult.setText(result);
+		
+		String text = String.format("%s 스트라이크 %s 볼", getEnglishString(mStrike), getEnglishString(mBall));
+		mMainActivity.speakOut(text);
+		
 		mHistoryList.add(new History(++mHit, input, result));
 		mAdapter.notifyDataSetChanged();
 		//리스트뷰의 맨 마지막으로 스크롤
@@ -272,6 +294,8 @@ public class _1_1_Fragment extends Fragment {
 			mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER, 1000);
 		} else {
 			//게임 오버 처리
+			SilverApplication.sApp.soundClap();
+			
 			mHandler.removeMessages(MSG_TIMER);
 			rootHistory.setVisibility(View.INVISIBLE);
 			rootVictory.setVisibility(View.VISIBLE);
@@ -328,6 +352,28 @@ public class _1_1_Fragment extends Fragment {
 				}
 			})
 			.create().show();
+	}
+	
+	private String getEnglishString(int s) {
+		String str = "노";
+		switch (s) {
+		case 0:
+			str = "노";
+			break;
+			
+		case 1:
+			str = "원";
+			break;
+			
+		case 2:
+			str = "투";
+			break;
+			
+		case 3:
+			str = "쓰리";
+			break;
+		}
+		return str;
 	}
 	
 	class History {

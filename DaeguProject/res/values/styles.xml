@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<style name="TransDialog">
         <item name="android:windowFrame">@null</item>
@@ -33,6 +33,12 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="RedLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#f47c6e</item>
+    </style>
+    
     <style name="Line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -116,5 +122,38 @@
 	    <item name="android:orientation">vertical</item>
 	    <item name="android:background">@drawable/menu_selector</item>
     </style>	
+    
+    <style name="InputButton">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+         <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/input</item>
+    </style>
+    
+    <style name="InputButton_sw600">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+         <item name="android:layout_marginRight">8dp</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/input</item>
+    </style>
+    
+    <style name="InputButton_sw720">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+         <item name="android:layout_marginRight">12dp</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/input</item>
+    </style>
 
 </resources>
