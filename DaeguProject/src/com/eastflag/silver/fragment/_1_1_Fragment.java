@@ -34,7 +34,6 @@ public class _1_1_Fragment extends Fragment {
 	private View mView;
 	private TextView tvTimer; //타이머
 	private ImageView ivRecord; //기록
-	private ImageView ivHelp;   //도움말
 	private TextView answerOne, answerTwo, answerThree;
 	private TextView answerResult;
 	private TextView number0, number1, number2, number3, number4;
@@ -120,7 +119,6 @@ public class _1_1_Fragment extends Fragment {
 		
 		tvTimer = (TextView) mView.findViewById(R.id.tvTimer);
 		ivRecord = (ImageView) mView.findViewById(R.id.ivRecord);
-		ivHelp = (ImageView) mView.findViewById(R.id.ivHelp);
 		answerOne = (TextView) mView.findViewById(R.id.answerOne);
 		answerTwo = (TextView) mView.findViewById(R.id.answerTwo);
 		answerThree = (TextView) mView.findViewById(R.id.answerThree);
@@ -143,7 +141,6 @@ public class _1_1_Fragment extends Fragment {
 		mListView = (ListView) mView.findViewById(R.id.listHistory);
 		
 		ivRecord.setOnClickListener(mClick);
-		ivHelp.setOnClickListener(mClick);
 		number0.setOnClickListener(mClick);
 		number1.setOnClickListener(mClick);
 		number2.setOnClickListener(mClick);
