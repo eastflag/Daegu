@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eastflag.silver.R;
+import com.eastflag.silver.SilverApplication;
 
 public class _1_2_Fragment extends Fragment {
 	
@@ -110,6 +111,8 @@ public class _1_2_Fragment extends Fragment {
 		mHandler.removeMessages(MSG_TIMER);
 		if(mVictory) {
 			tvResult.setText("Victory!!!");
+			SilverApplication.sApp.soundClap();
+			
 			if(mPair == STAGE_FINAL) {
 				btnRestart.setText("다시하기");
 			} else {
@@ -182,7 +185,7 @@ public class _1_2_Fragment extends Fragment {
 	            }
 	            imageView.setLayoutParams(new GridView.LayoutParams(width, width));
 	            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-	            imageView.setPadding(2, 2, 2, 2);
+	            imageView.setPadding(10, 10, 10, 10);
 
 	            imageView.setImageResource(R.drawable.back);
 	            imageViews.add(imageView);
@@ -219,6 +222,7 @@ public class _1_2_Fragment extends Fragment {
 	                Log.d("ImageAdapter", "click!" + Integer.toString(pos));
 	                show(pos);
 
+	                SilverApplication.sApp.soundCardClick();
 
 	                // FIXME: UI update
 	                // http://developer.android.com/resources/articles/timed-ui-updates.html
@@ -229,7 +233,9 @@ public class _1_2_Fragment extends Fragment {
 	                    // second click
 	                    if (pieces[pos] == pieces[piece_up]) {
 	                        // ok, it's equal
-	                        Toast.makeText(getActivity(), "good!", 2).show();
+	                        //Toast.makeText(getActivity(), "good!", 2).show();
+	                    	SilverApplication.sApp.soundCardSuccess();
+	                    	
 	                        mScore += 10 * mStage;
 	                        tvScore.setText(String.valueOf(mScore));
 	                        ++mCorrectPair;
@@ -245,6 +251,7 @@ public class _1_2_Fragment extends Fragment {
 	                    } else {
 	                        // try again
 	                    	//시도횟수 감소
+	                    	SilverApplication.sApp.soundCardFail();
 	                    	--mLimit;
 	                    	tvLimit.setText(String.valueOf(mLimit));
 	                        int aux[] = {piece_up, pos};
@@ -287,18 +294,18 @@ public class _1_2_Fragment extends Fragment {
 	    //
 	    // references to our images
 	    private Integer[] mThumbIds = {
-	            R.drawable.american_gangster_icon,
-	            R.drawable.a_moment_icon,
-	            R.drawable.angels_and_demons_icon,
-	            R.drawable.apocalypto_icon,
-	            R.drawable.i300_icon,
-	            R.drawable.b13_u_icon,
-	            R.drawable.baby_and_me_icon,
-	            R.drawable.bangkok_dangerous_icon,
-	            R.drawable.batman_begins_1_icon,
-	            R.drawable.batman_begins_2_icon,
-	            R.drawable.batman_begins_3_icon,
-	            R.drawable.batman_dark_knight_icon,
+	            R.drawable.cen,
+	            R.drawable.forest,
+	            R.drawable.gladiator,
+	            R.drawable.kawnhae,
+	            R.drawable.leon,
+	            R.drawable.matrix,
+	            R.drawable.memory,
+	            R.drawable.radio,
+	            R.drawable.ring,
+	            R.drawable.three,
+	            R.drawable.yeobgi,
+	            R.drawable.movie_image
 	        };
 	}
 	
