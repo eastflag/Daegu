@@ -103,13 +103,13 @@
 			    android:layout_gravity="center" android:gravity="center">
 		    	<TextView 
 		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-		    	    android:text="Victory!!!" android:textSize="30sp" />
+		    	    android:text="Victory!!!" android:textSize="60sp" />
 		    	<Button 
 		    	    android:id="@+id/btnRestart"
 		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-		    	    android:layout_marginTop="20dp"
-		    	    android:text="다시하기" android:textSize="25sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
-		    	    android:padding="10dp"
+		    	    android:layout_marginTop="40dp"
+		    	    android:text="다시하기" android:textSize="50sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
+		    	    android:padding="20dp"
 		    	    android:background="@drawable/color_red" />
 		    </LinearLayout>
 	    </FrameLayout>
