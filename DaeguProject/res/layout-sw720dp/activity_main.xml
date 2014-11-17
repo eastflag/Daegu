@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<LinearLayout android:id="@+id/tab_group" android:layout_width="match_parent" android:layout_height="70dp"   
+		android:orientation="horizontal" android:layout_gravity="right|center_vertical"
+		android:visibility="gone">
+		<TextView 
+		    android:id="@+id/tab_1" 
+		    android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" 
+		    android:gravity="center" android:textColor="#ffffff" android:textSize="30sp"
+		    android:paddingLeft="20dp" android:paddingRight="20dp" android:background="@drawable/tab_s_on"/>
+		<TextView 
+		    android:id="@+id/tab_2" 
+		    android:layout_marginLeft="1dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" 
+		    android:gravity="center" android:textColor="#ffffff" android:textSize="30sp"
+		    android:paddingLeft="20dp" android:paddingRight="20dp"  android:background="@drawable/tab_s_off"/>
+		<TextView 
+		    android:id="@+id/tab_3" 
+		    android:layout_marginLeft="1dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" 
+		    android:gravity="center" android:textColor="#ffffff" android:textSize="30sp"
+		    android:paddingLeft="20dp" android:paddingRight="20dp"  android:background="@drawable/tab_s_off"/>
+	</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="70dp"
+        android:background="@null" android:orientation="vertical"  android:gravity="center"
+        android:id="@+id/main_menu">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:id="@+id/ll_1"
+                style="@style/Pad10MenuButton" >
+                <ImageView
+                    android:id="@+id/iv_auto"
+                    style="@style/PadMenuImage"
+                    android:background="@drawable/menuicon_1" />
+                <TextView
+                    android:id="@+id/tv_auto"
+                    style="@style/Pad10MenuText"
+                    android:text="@string/menu_1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_2"
+                style="@style/Pad10MenuButton"
+                android:layout_marginLeft="30dp">
+                <ImageView
+                    android:id="@+id/iv_ventilation"
+                    style="@style/PadMenuImage"
+                    android:background="@drawable/menuicon_2" />
+                <TextView
+                    android:id="@+id/tv_ventilation"
+                    style="@style/Pad10MenuText"
+                    android:text="@string/menu_2" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:id="@+id/ll_3"
+                style="@style/Pad10MenuButton" >
+                <ImageView
+                    android:id="@+id/iv_smart"
+                    style="@style/PadMenuImage"
+                    android:background="@drawable/menuicon_3" />
+                <TextView
+                    android:id="@+id/tv_smart"
+                    style="@style/Pad10MenuText"
+                    android:text="@string/menu_3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_4"
+                style="@style/Pad10MenuButton"
+                android:layout_marginLeft="30dp">
+                <ImageView
+                    android:id="@+id/iv_security"
+                    style="@style/PadMenuImage"
+                    android:background="@drawable/menuicon_4" />
+                <TextView
+                    android:id="@+id/tv_security"
+                    style="@style/Pad10MenuText"
+                    android:text="@string/menu_4" />
+            </LinearLayout>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+    
+</LinearLayout>

@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.eastflag.silver.R;
 import com.eastflag.silver.SilverApplication;
+import com.eastflag.silver.util.Utils;
 
 public class _1_2_Fragment extends Fragment {
 	
@@ -32,7 +33,7 @@ public class _1_2_Fragment extends Fragment {
 	private static final int STAGE_3 = 10;
 	private static final int STAGE_FINAL = 12;
 	
-	private int mWidth = 1080;
+	//private int mWidth = 1080;
 	
 	private View mView;
 	private TextView tvTimer, tvLimit, tvScore, tvStage;
@@ -175,13 +176,13 @@ public class _1_2_Fragment extends Fragment {
 	            ImageView imageView;
 
 	            imageView = new ImageView(getActivity());
-	            int width = 0;
+	            int width = Utils.getDisplayWidth(getActivity());
 	            if(mPair == 6 || mPair == 8) {
-	            	width = mWidth/4;
+	            	width = width/4;
 	            } else if (mPair == 10 || mPair == 12){
-	            	width = mWidth/5;
+	            	width = width/5;
 	            } else {
-	            	width = mWidth/4;
+	            	width = width/4;
 	            }
 	            imageView.setLayoutParams(new GridView.LayoutParams(width, width));
 	            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -236,6 +237,7 @@ public class _1_2_Fragment extends Fragment {
 	                        //Toast.makeText(getActivity(), "good!", 2).show();
 	                    	SilverApplication.sApp.soundCardSuccess();
 	                    	
+	                    	//한쌍당 10 곱하기 스테이지
 	                        mScore += 10 * mStage;
 	                        tvScore.setText(String.valueOf(mScore));
 	                        ++mCorrectPair;
@@ -246,6 +248,8 @@ public class _1_2_Fragment extends Fragment {
                     		if (mCorrectPair == mPair) {
                     			Log.d("LDK", "game over");
                     			mVictory = true;
+                    			//시간 점수 더하기 : 1단계 기준 60초가 넘으면 시간점수 없음
+                    			mScore += (60 * mStage - mTime) > 0 ? (60 * mStage - mTime) * 50 : 0;
                     			gameOver();
                     		}
 	                    } else {
@@ -261,6 +265,7 @@ public class _1_2_Fragment extends Fragment {
 	                        //시도횟수가 0이면 game over
 	                        if(mLimit == 0) {
 	                        	mVictory = false;
+	                        	SilverApplication.sApp.soundCardAh();
 	                        	gameOver();
 	                        }
 	                    }
