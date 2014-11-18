@@ -28,6 +28,7 @@
     <color name="complex_list_select">#7d799a</color>
     <color name="user_info_change_button">#7d799a</color>
     <color name="white">#ffffff</color>
+    <color name="black">#ff000000</color>
     
 </resources>
  	
