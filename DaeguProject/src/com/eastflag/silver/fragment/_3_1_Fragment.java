@@ -49,11 +49,11 @@ public class _3_1_Fragment extends Fragment {
 		mWebView.setWebViewClient(new MyWebViewClient());
 		mWebView.loadUrl("file:///android_asset/3main.html");
 		
-		//HTML5WebView webview = new HTML5WebView(getActivity());
-		//webview.loadUrl("file:///android_asset/3main.html");
-        //return webview.getLayout();
+		HTML5WebView webview = new HTML5WebView(getActivity());
+		webview.loadUrl("file:///android_asset/3main.html");
+        return webview.getLayout();
 		
-		return mView;
+		//return mView;
 	}
 
 	@Override
