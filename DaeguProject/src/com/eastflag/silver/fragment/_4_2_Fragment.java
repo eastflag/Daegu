@@ -18,7 +18,7 @@ public class _4_2_Fragment extends Fragment {
 	private View mView;
 
 	private AQuery mAq;
-	private WebView mWebView;
+	public WebView mWebView;
 	private ProgressBar mProgressBar;
 	
 	public _4_2_Fragment () {

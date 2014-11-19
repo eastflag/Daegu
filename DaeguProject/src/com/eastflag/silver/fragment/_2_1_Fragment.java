@@ -25,7 +25,7 @@ import com.eastflag.silver.fragment._3_1_Fragment.MyWebViewClient;
 public class _2_1_Fragment extends Fragment {
 	
 	private View mView;
-	private WebView mWebView;
+	public WebView mWebView;
 	
 	private ProgressBar mProgressBar;
 	

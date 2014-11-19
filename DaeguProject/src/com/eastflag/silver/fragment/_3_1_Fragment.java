@@ -30,7 +30,7 @@ import com.eastflag.silver.util.HTML5WebView;
 public class _3_1_Fragment extends Fragment {
 	
 	private View mView;
-	private WebView mWebView;
+	public WebView mWebView;
 	
 	private ProgressBar mProgressBar;
 	
@@ -49,12 +49,14 @@ public class _3_1_Fragment extends Fragment {
 		mWebView.setWebViewClient(new MyWebViewClient());
 		mWebView.loadUrl("file:///android_asset/3main.html");
 		
-		HTML5WebView webview = new HTML5WebView(getActivity());
-		webview.loadUrl("file:///android_asset/3main.html");
-        return webview.getLayout();
+		//HTML5WebView webview = new HTML5WebView(getActivity());
+		//webview.loadUrl("file:///android_asset/3main.html");
+        //return webview.getLayout();
 		
-		//return mView;
+		return mView;
 	}
+	
+	
 
 	@Override
 	public void onDestroyView() {

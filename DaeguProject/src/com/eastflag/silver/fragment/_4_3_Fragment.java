@@ -32,7 +32,7 @@ import com.eastflag.silver.R;
 public class _4_3_Fragment extends Fragment {
 	
 	private View mView;
-	private WebView mWebView;
+	public WebView mWebView;
 	private ProgressBar mProgressBar;
 	
 	private AQuery mAq;
