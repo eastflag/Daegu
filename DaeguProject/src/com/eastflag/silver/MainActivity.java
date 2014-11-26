@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -24,7 +25,6 @@ import com.eastflag.silver.fragment._3_1_Fragment;
 import com.eastflag.silver.fragment._4_1_Fragment;
 import com.eastflag.silver.fragment._4_2_Fragment;
 import com.eastflag.silver.fragment._4_3_Fragment;
-import com.eastflag.silver.util.GPSTracker;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 	
@@ -134,6 +134,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		tab_3.setOnClickListener(mTabClick);
 		
 		mTts = new TextToSpeech(this, this);
+		
+		TextView tvTitle = (TextView) findViewById(R.id.intro_title);
+		tvTitle.setShadowLayer(30, 0, 0, Color.RED);
 	}
 
 	@Override
