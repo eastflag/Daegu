@@ -56,22 +56,32 @@
 		    android:gravity="center" />
 	    <LinearLayout
 	        android:id="@+id/rootVictory" android:visibility="gone"
-		    android:layout_width="wrap_content" android:layout_height="wrap_content" 
+		    android:layout_width="560dp" android:layout_height="wrap_content" 
 		    android:orientation="vertical" android:padding="50dp"
 		    android:layout_gravity="center" android:gravity="center"
 		    android:background="@drawable/input">
 	    	<TextView 
-	    	    android:id="@+id/tvResult"
 	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:layout_gravity="center"
 	    	    android:text="Victory!!!" android:textSize="60sp" />
+	    	<TextView 
+	    	    android:id="@+id/tvResult"
+	    	    android:layout_width="match_parent" android:layout_height="wrap_content"
+	    	    android:padding="20dp"
+	    	    android:text="aaaa" android:textSize="40sp" />
 	    	<Button 
 	    	    android:id="@+id/btnRestart"
 	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-	    	    android:layout_marginTop="40dp"
+	    	    android:layout_marginTop="20dp"
 	    	    android:text="다시하기" android:textSize="50sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
 	    	    android:padding="20dp"
 	    	    android:background="@drawable/color_red" />
 	    </LinearLayout>
 	</FrameLayout>
-
+	<TextView
+	    android:id="@+id/tvCountDown"
+	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:text="5" android:textSize="200dp" android:textStyle="bold" android:textColor="#FBFBFB"
+	    android:shadowColor="#000" android:shadowDx="5" android:shadowDy="5" android:shadowRadius="24" />
 </LinearLayout>
