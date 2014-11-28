@@ -42,12 +42,13 @@ public class _1_2_Fragment extends Fragment {
 	private TextView tvTimer, tvLimit, tvScore, tvStage;
 	private GridView mGridView;
 	private LinearLayout rootVictory;
-	private TextView tvResult;
+	private TextView tvResult;  //메시지
+	private TextView tvVictory; //Victory or Fail
 	private Button btnRestart;
 	private TextView tvCountDown;
 	
 	private int mTime;
-	private int mLimit = 10; //10회까지 시도
+	private int mLimit = 5; //5회까지 시도
 	private int mScore;
 	private int mStage = 1; //최초 1단계
 	private boolean mVictory;
@@ -128,6 +129,7 @@ public class _1_2_Fragment extends Fragment {
 		mGridView = (GridView) mView.findViewById(R.id.gridview);
 		rootVictory = (LinearLayout) mView.findViewById(R.id.rootVictory);
 		tvResult = (TextView) mView.findViewById(R.id.tvResult);
+		tvVictory = (TextView) mView.findViewById(R.id.tvVictory);
 		btnRestart = (Button) mView.findViewById(R.id.btnRestart);
 		tvCountDown = (TextView) mView.findViewById(R.id.tvCountDown);
 		
@@ -157,6 +159,7 @@ public class _1_2_Fragment extends Fragment {
 		mHandler.removeMessages(MSG_TIMER);
 		if(mVictory) {
 			String textVictory = String.valueOf(mStage) + "단계를 통과하였습니다!";
+			tvVictory.setText("Victory!!!");
 			tvResult.setText(textVictory);
 			mMainActivity.speakOut(textVictory);
 			SilverApplication.sApp.soundClap();
@@ -167,6 +170,7 @@ public class _1_2_Fragment extends Fragment {
 				btnRestart.setText("다음 단계");
 			}
 		} else {
+			tvVictory.setText("Fail!!!");
 			String failText = "";
 			if(mStage == 1) {
 				failText = "지능이 물고기와 비슷한 수준입니다. 얼른 자녀에게 연락하셔서 병원을 예약해두세요";
@@ -185,9 +189,10 @@ public class _1_2_Fragment extends Fragment {
 	}
 	
 	private void restartGame() {
+		mMainActivity.speakStop();
 		//Next Stage
 		if(mVictory) {
-			if(mStage != STAGE_FINAL) {
+			if(mStage < 4) { //마지막단계는 4단계
 				++mStage;
 				mPair += 2;
 			} else { //처음부터 다시 하기
@@ -201,8 +206,7 @@ public class _1_2_Fragment extends Fragment {
 		mTime = 0;
 		mCountDown = 6;
 		mCorrectPair = 0;
-		mHandler.sendEmptyMessageDelayed(MSG_TIMER, 1000);
-		mLimit = 5 + 5 * mStage;
+		mLimit = 1 + 4 * mStage;
 		mScore = 0;
 		tvTimer.setText(String.format("%02d:%02d", mTime/60, mTime%60));
 		tvLimit.setText(String.valueOf(mLimit));
@@ -388,18 +392,18 @@ public class _1_2_Fragment extends Fragment {
 	    //
 	    // references to our images
 	    private Integer[] mThumbIds = {
-	            R.drawable.cen,
-	            R.drawable.forest,
-	            R.drawable.gladiator,
-	            R.drawable.kawnhae,
-	            R.drawable.leon,
-	            R.drawable.matrix,
-	            R.drawable.memory,
-	            R.drawable.radio,
-	            R.drawable.ring,
-	            R.drawable.three,
-	            R.drawable.yeobgi,
-	            R.drawable.movie_image
+	            R.drawable._1,
+	            R.drawable._2,
+	            R.drawable._3,
+	            R.drawable._4,
+	            R.drawable._5,
+	            R.drawable._6,
+	            R.drawable._7,
+	            R.drawable._8,
+	            R.drawable._9,
+	            R.drawable._10,
+	            R.drawable._11,
+	            R.drawable._12
 	        };
 	}
 }
