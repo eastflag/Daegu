@@ -10,12 +10,18 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eastflag.silver.fragment._1_1_Fragment;
@@ -42,10 +48,55 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 	private LinearLayout mMainMenu;
 	private LinearLayout mTabGroup;
 	private TextView tab_1, tab_2, tab_3;
+	private LinearLayout main;
+	private RelativeLayout intro;
 	
 	private HashMap<Integer, String> mInfo = new HashMap<Integer, String>();
 	
 	public TextToSpeech mTts;
+	
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			switch(msg.what) {
+			case 0:
+				main = (LinearLayout) findViewById(R.id.main);
+				intro = (RelativeLayout) findViewById(R.id.intro);
+				Animation fadein = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in);
+			    main.startAnimation(fadein);
+
+			    Animation fadeout = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_out);
+			    intro.startAnimation(fadeout);
+			    
+			    fadein.setAnimationListener(new AnimationListener() {
+			    	@Override
+					public void onAnimationStart(Animation animation) {
+						main.setVisibility(View.VISIBLE);
+					}
+					@Override
+					public void onAnimationRepeat(Animation animation) {
+					}
+					@Override
+					public void onAnimationEnd(Animation animation) {
+					}
+				});
+			    
+			    fadeout.setAnimationListener(new AnimationListener() {
+					@Override
+					public void onAnimationStart(Animation animation) {
+						intro.setVisibility(View.GONE);
+					}
+					@Override
+					public void onAnimationRepeat(Animation animation) {
+					}
+					@Override
+					public void onAnimationEnd(Animation animation) {
+					}
+				});
+			    break;
+			}
+		}
+	};
 	
 	View.OnClickListener mClick = new View.OnClickListener() {
 		@Override
@@ -133,10 +184,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		tab_2.setOnClickListener(mTabClick);
 		tab_3.setOnClickListener(mTabClick);
 		
-		mTts = new TextToSpeech(this, this);
+		//메인화면 애니메이션 세팅
+		mHandler.sendEmptyMessageDelayed(0, 2000);
 		
-		TextView tvTitle = (TextView) findViewById(R.id.intro_title);
-		tvTitle.setShadowLayer(30, 0, 0, Color.RED);
+		mTts = new TextToSpeech(this, this);
 	}
 
 	@Override
@@ -323,5 +374,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     public void speakOut(String text) {
 
         mTts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+    
+    public void speakStop() {
+    	mTts.stop();
     }
 }

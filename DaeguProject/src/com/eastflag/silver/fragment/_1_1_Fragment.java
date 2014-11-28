@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eastflag.silver.MainActivity;
 import com.eastflag.silver.R;
@@ -39,6 +40,7 @@ public class _1_1_Fragment extends Fragment {
 	private ImageView ivRecord; //기록
 	private TextView answerOne, answerTwo, answerThree;
 	private TextView answerResult;
+	private TextView tvVictory;
 	private TextView number0, number1, number2, number3, number4;
 	private TextView number5, number6, number7, number8, number9;
 	private Button btnDelete, btnSubmit;
@@ -66,7 +68,7 @@ public class _1_1_Fragment extends Fragment {
 		public void handleMessage(Message msg) {
 			switch(msg.what) {
 			case MSG_RESET_ANSWER:
-				answerResult.setText("");
+				//answerResult.setText("");
 				answerOne.setText("?");
 				answerTwo.setText("?");
 				answerThree.setText("?");
@@ -148,6 +150,7 @@ public class _1_1_Fragment extends Fragment {
 		btnRestart = (Button) mView.findViewById(R.id.btnRestart);
 		rootHistory = (LinearLayout) mView.findViewById(R.id.rootHistory);
 		rootVictory = (LinearLayout) mView.findViewById(R.id.rootVictory);
+		tvVictory = (TextView) mView.findViewById(R.id.tvVictory);
 		mListView = (ListView) mView.findViewById(R.id.listHistory);
 		
 		ivRecord.setOnClickListener(mClick);
@@ -201,6 +204,18 @@ public class _1_1_Fragment extends Fragment {
 	}
 	
 	private void inputNumber(String number) {
+		//중복입력 방지
+		if(answerOne.getText().toString().contains(number) ||
+				answerTwo.getText().toString().contains(number) ||
+				answerThree.getText().toString().contains(number)) {
+			String text = "중복된 숫자입니다";
+			//Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+			//answerResult.setText(text);
+			mMainActivity.speakOut(text);
+			//mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
+			return;
+		}
+			
 		if(answerOne.getText().toString().equals("?")) {
 			answerOne.setText(number);
 		} else if(answerTwo.getText().toString().equals("?")) {
@@ -227,17 +242,10 @@ public class _1_1_Fragment extends Fragment {
 		
 		if(a.equals("?") || b.equals("?") || c.equals("?")) {
 			String text = "3자리를 모두 입력하세요";
-			answerResult.setText(text);
+			//Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+			//answerResult.setText(text);
 			mMainActivity.speakOut(text);
-			mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
-			return;
-		}
-		
-		if(a.equals(b) || a.equals(c) || b.equals(c)) {
-			String text = "각각 다른 3자리를 입력하세요";
-			answerResult.setText(text);
-			mMainActivity.speakOut(text);
-			mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
+			//mHandler.sendEmptyMessageDelayed(MSG_RESET_ANSWER_RESULT, 2000);
 			return;
 		}
 
@@ -273,8 +281,8 @@ public class _1_1_Fragment extends Fragment {
 	
 	private void checkEnd() {
 		String input = answerOne.getText().toString() + answerTwo.getText().toString() + answerThree.getText().toString();
-		String result = String.format("%dS %dB", mStrike, mBall);
-		answerResult.setText(result);
+		String result = String.format("%d<font color='red'>S</font> %d<font color='blue'>B</font>", mStrike, mBall);
+		answerResult.setText(Html.fromHtml(result), TextView.BufferType.SPANNABLE);
 		
 		String text = String.format("%s 스트라이크 %s 볼", getEnglishString(mStrike), getEnglishString(mBall));
 		mMainActivity.speakOut(text);
@@ -299,6 +307,30 @@ public class _1_1_Fragment extends Fragment {
 			mHandler.removeMessages(MSG_TIMER);
 			rootHistory.setVisibility(View.INVISIBLE);
 			rootVictory.setVisibility(View.VISIBLE);
+			
+			//승리 메시지
+			String textVictory = "";
+			if(mHit == 1) {
+				textVictory += "운이 좋으시네요! 다시 시도해주세요";
+			} else if(mHit == 2) {
+				textVictory += "실력이 아니라 운입니다! 다시 시도해주세요";
+			} else if(mHit == 3) {
+				textVictory += "실력과 운을 같이 가지고 계시네요";
+			} else if(mHit == 4 || mHit == 5) {
+				textVictory += "대단하십니다! 당신은 20대의 머리를 가지고 있습니다";
+			} else if(mHit == 6 || mHit == 7) {
+				textVictory += "축하합니다. 아직 정정하시군요!";
+			} else if(mHit == 8 || mHit == 9 || mHit == 10) {
+				textVictory += "좀 더 노력이 필요하지만 좋은 편이군요!";
+			} else if(mHit > 10 && mTime < 600) {
+				textVictory += "머리를 쓰셔야할 것 같습니다";
+			} else if(mHit > 10 && mTime >= 600) {
+				textVictory += "너무 오래걸립니다 치매가 걱정됩니다";
+			}
+			
+			tvVictory.setText(textVictory);
+			mMainActivity.speakOut(textVictory);
+			
 			//랭킹스코어 기록
 	        //DB에 해당 내용 저장
 	        MySqlController controller = new MySqlController(getActivity());
@@ -317,6 +349,7 @@ public class _1_1_Fragment extends Fragment {
 	}
 	
 	private void restartGame() {
+		mMainActivity.speakStop();
 		answerResult.setText("");
 		answerOne.setText("?");
 		answerTwo.setText("?");
@@ -415,7 +448,7 @@ public class _1_1_Fragment extends Fragment {
 			
 			tvHit.setText(String.valueOf(mHistoryList.get(position).hit));
 			tvInput.setText(mHistoryList.get(position).input);
-			tvResult.setText(mHistoryList.get(position).result);
+			tvResult.setText(Html.fromHtml(mHistoryList.get(position).result), TextView.BufferType.SPANNABLE);
 			
 			return convertView;
 		}
