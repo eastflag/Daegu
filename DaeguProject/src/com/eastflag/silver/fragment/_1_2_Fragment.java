@@ -219,6 +219,7 @@ public class _1_2_Fragment extends Fragment {
 	@Override
 	public void onDestroyView() {
 		mHandler.removeMessages(MSG_TIMER);
+		mHandler.removeMessages(MSG_COUNT_DOWN);
 		super.onDestroyView();
 	}
 	
