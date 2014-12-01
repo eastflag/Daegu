@@ -32,9 +32,7 @@ public class _1_2_Fragment extends Fragment {
 	private static final int MSG_WAIT_FOR_WRONG_CLICK = 3;
 	
 	private static final int STAGE_1 = 6;
-	private static final int STAGE_2 = 8;
-	private static final int STAGE_3 = 10;
-	private static final int STAGE_FINAL = 12;
+	private static final int STAGE_FINAL = 18;
 	
 	//private int mWidth = 1080;
 	
@@ -148,7 +146,16 @@ public class _1_2_Fragment extends Fragment {
 		
 		mImageAdapter = new ImageAdapter(pair);
 		mGridView.setAdapter(mImageAdapter);
-		int num = pair <= 8 ? 4 : 5;
+		
+		//int num = pair <= 8 ? 4 : 5;
+		int num = 4;
+		if(pair <= 8) {
+			num = 4;
+		} else if (pair>8 && pair <=12) {
+			num = 5;
+		} else {
+			num = 6;
+		}
 		mGridView.setNumColumns(num);
 		mHandler.sendEmptyMessage(MSG_COUNT_DOWN);
 	}
@@ -180,6 +187,8 @@ public class _1_2_Fragment extends Fragment {
 				failText = "좀 더 노력하세요, 이대로 치매가 올 수도 있습니다";
 			} else if (mStage == 4) {
 				failText = "좀 더 노력하셔서 치매 예방에 도움되길 바랍니다";
+			} else if (mStage > 4) {
+				failText = "아쉽습니다. 다시 도전해주세요";
 			}
 			tvResult.setText(failText);
 			mMainActivity.speakOut(failText);
@@ -192,9 +201,13 @@ public class _1_2_Fragment extends Fragment {
 		mMainActivity.speakStop();
 		//Next Stage
 		if(mVictory) {
-			if(mStage < 4) { //마지막단계는 4단계
+			if(mStage < 10) { //마지막단계는 10단계
 				++mStage;
-				mPair += 2;
+				if(mStage >= 7) { //7단계까지는 1쌍씩 올리고 7단계부터는 2쌍씩 올린다.
+					mPair += 2;
+				} else {
+					mPair += 1;
+				}
 			} else { //처음부터 다시 하기
 				mStage = 1;
 				mPair = STAGE_1;
@@ -204,9 +217,19 @@ public class _1_2_Fragment extends Fragment {
 		//초기화
 		rootVictory.setVisibility(View.GONE);
 		mTime = 0;
-		mCountDown = 6;
+		
+		//스테이지에 따른 카운트다운 횟수 감소
+		if(mStage<=3) {
+			mCountDown = 6;
+		} else if(mStage>3 && mStage <=6) {
+			mCountDown = 5;
+		} else if(mStage>6 && mStage <=8) {
+			mCountDown = 4;
+		} else {
+			mCountDown = 3;
+		} 
 		mCorrectPair = 0;
-		mLimit = 1 + 4 * mStage;
+		mLimit =5 + 2 * (mPair - 6); //시도횟수 제한은 최초 5회에서 한쌍당 2씩 증가
 		mScore = 0;
 		tvTimer.setText(String.format("%02d:%02d", mTime/60, mTime%60));
 		tvLimit.setText(String.valueOf(mLimit));
@@ -244,15 +267,15 @@ public class _1_2_Fragment extends Fragment {
 
 	            imageView = new ImageView(getActivity());
 	            int width = Utils.getDisplayWidth(getActivity());
-	            if(mPair == 6 || mPair == 8) {
+	            if(mPair <= 8 ) { //4칸
 	            	width = width/4;
-	            } else if (mPair == 10 || mPair == 12){
+	            } else if (mPair > 8 || mPair <= 12){
 	            	width = width/5;
 	            } else {
-	            	width = width/4;
+	            	width = width/6;
 	            }
 	            imageView.setLayoutParams(new GridView.LayoutParams(width, width));
-	            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+	            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
 	            imageView.setPadding(10, 10, 10, 10);
 
 	            //imageView.setImageResource(R.drawable.back);
@@ -405,7 +428,13 @@ public class _1_2_Fragment extends Fragment {
 	            R.drawable._9,
 	            R.drawable._10,
 	            R.drawable._11,
-	            R.drawable._12
+	            R.drawable._12,
+	            R.drawable._13,
+	            R.drawable._14,
+	            R.drawable._15,
+	            R.drawable._16,
+	            R.drawable._17,
+	            R.drawable._18
 	        };
 	}
 }
