@@ -96,105 +96,112 @@
 		    	    android:layout_width="match_parent" android:layout_height="wrap_content"
 		    	    android:divider="@drawable/list_divider" />
 		    </LinearLayout>
-		    <LinearLayout
-		        android:id="@+id/rootVictory" android:visibility="invisible"
-			    android:layout_width="match_parent" android:layout_height="match_parent" 
-			    android:orientation="vertical"
-			    android:layout_gravity="center" android:gravity="center">
-		    	<TextView 
-		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-		    	    android:text="Victory!!!" android:textSize="60sp" />
-		    	<TextView 
-		    	    android:id="@+id/tvVictory"
-		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-		    	    android:paddingLeft="20dp"  android:paddingRight="20dp" 
-		    	    android:text="" android:textSize="40sp" />
-		    	<Button 
-		    	    android:id="@+id/btnRestart"
-		    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
-		    	    android:layout_marginTop="30dp"
-		    	    android:text="다시하기" android:textSize="50sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
-		    	    android:padding="20dp"
-		    	    android:background="@drawable/color_red" />
-		    </LinearLayout>
+		   
 	    </FrameLayout>
 
 	</LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" android:gravity="center"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            style="@style/Line"
-            android:layout_marginBottom="20dp" />
-        
-        <LinearLayout android:layout_width="wrap_content"	android:layout_height="wrap_content"
-            android:orientation="horizontal" android:gravity="center">
-            <TextView 
-                android:id="@+id/numberZero"
-                style="@style/InputButton_sw720"
-	            android:text="0"  />
-            <TextView 
-                android:id="@+id/numberOne"
-                style="@style/InputButton_sw720"
-	            android:text="1" />
-            <TextView 
-                android:id="@+id/numberTwo"
-                style="@style/InputButton_sw720"
-	            android:text="2" />
-            <TextView 
-                android:id="@+id/numberThree"
-                style="@style/InputButton_sw720"
-	            android:text="3"/>
-            <TextView 
-                android:id="@+id/numberFour"
-                style="@style/InputButton_sw720"
-	            android:text="4" />
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content"	android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal" android:gravity="center">
-            <TextView 
-            	android:id="@+id/numberFive"
-                android:layout_below="@id/numberZero" 
-                style="@style/InputButton_sw720"
-	            android:text="5" />
-            <TextView 
-                android:id="@+id/numberSix"
-                style="@style/InputButton_sw720"
-	            android:text="6" />
-            <TextView 
-                android:id="@+id/numberSeven"
-                style="@style/InputButton_sw720"
-	            android:text="7"/>
-            <TextView 
-                android:id="@+id/numberEight"
-                style="@style/InputButton_sw720"
-	            android:text="8" />
-            <TextView 
-                android:id="@+id/numberNine"
-                style="@style/InputButton_sw720"
-	            android:text="9"/>
-        </LinearLayout>
-        
-        <LinearLayout
-            android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:padding="10dp">
-            <Button 
-                android:id="@+id/btnDelete" 
-                android:layout_width="160dp" android:layout_height="80dp" android:layout_marginRight="10dp"
-        	    android:background="@drawable/color_red" android:text="지우기"
-                android:textColor="#ffffff" android:gravity="center" android:textSize="35dp" />
-            <Button 
-                android:id="@+id/btnSubmit" 
-                android:layout_width="160dp" android:layout_height="80dp" android:layout_marginLeft="10dp"
-        	    android:background="@drawable/color_red" android:text="완료"
-                android:textColor="#ffffff" android:gravity="center" android:textSize="35dp" />
-        </LinearLayout>
-        
-    </LinearLayout>
+    <FrameLayout
+	        android:layout_width="match_parent" android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp" android:gravity="center" >
+	    <LinearLayout
+	        android:layout_width="match_parent" android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:orientation="vertical" >
+	
+	        <LinearLayout
+	            style="@style/Line"
+	            android:layout_marginBottom="20dp" />
+	        
+	        <LinearLayout android:layout_width="wrap_content"	android:layout_height="wrap_content"
+	            android:orientation="horizontal" android:gravity="center">
+	            <TextView 
+	                android:id="@+id/numberZero"
+	                style="@style/InputButton_sw720"
+		            android:text="0"  />
+	            <TextView 
+	                android:id="@+id/numberOne"
+	                style="@style/InputButton_sw720"
+		            android:text="1" />
+	            <TextView 
+	                android:id="@+id/numberTwo"
+	                style="@style/InputButton_sw720"
+		            android:text="2" />
+	            <TextView 
+	                android:id="@+id/numberThree"
+	                style="@style/InputButton_sw720"
+		            android:text="3"/>
+	            <TextView 
+	                android:id="@+id/numberFour"
+	                style="@style/InputButton_sw720"
+		            android:text="4" />
+	        </LinearLayout>
+	        <LinearLayout android:layout_width="wrap_content"	android:layout_height="wrap_content"
+	            android:layout_marginTop="10dp"
+	            android:orientation="horizontal" android:gravity="center">
+	            <TextView 
+	            	android:id="@+id/numberFive"
+	                android:layout_below="@id/numberZero" 
+	                style="@style/InputButton_sw720"
+		            android:text="5" />
+	            <TextView 
+	                android:id="@+id/numberSix"
+	                style="@style/InputButton_sw720"
+		            android:text="6" />
+	            <TextView 
+	                android:id="@+id/numberSeven"
+	                style="@style/InputButton_sw720"
+		            android:text="7"/>
+	            <TextView 
+	                android:id="@+id/numberEight"
+	                style="@style/InputButton_sw720"
+		            android:text="8" />
+	            <TextView 
+	                android:id="@+id/numberNine"
+	                style="@style/InputButton_sw720"
+		            android:text="9"/>
+	        </LinearLayout>
+	        
+	        <LinearLayout
+	            android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center"
+	            android:layout_marginTop="10dp"
+	            android:padding="10dp">
+	            <Button 
+	                android:id="@+id/btnDelete" 
+	                android:layout_width="160dp" android:layout_height="80dp" android:layout_marginRight="10dp"
+	        	    android:background="@drawable/color_red" android:text="지우기"
+	                android:textColor="#ffffff" android:gravity="center" android:textSize="35dp" />
+	            <Button 
+	                android:id="@+id/btnSubmit" 
+	                android:layout_width="160dp" android:layout_height="80dp" android:layout_marginLeft="10dp"
+	        	    android:background="@drawable/color_red" android:text="완료"
+	                android:textColor="#ffffff" android:gravity="center" android:textSize="35dp" />
+	        </LinearLayout>
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/rootVictory" android:visibility="invisible"
+		    android:layout_width="match_parent" android:layout_height="match_parent" 
+		    android:orientation="vertical" android:background="@drawable/input"
+		    android:layout_gravity="center" android:gravity="center">
+	    	<TextView 
+	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:layout_marginBottom="30dp"
+	    	    android:text="Victory!!!" android:textSize="60sp" />
+	    	<TextView 
+	    	    android:id="@+id/tvVictory"
+	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:paddingLeft="40dp"  android:paddingRight="40dp" 
+	    	    android:text="" android:textSize="40sp" />
+	    	<Button 
+	    	    android:id="@+id/btnRestart"
+	    	    android:layout_width="wrap_content" android:layout_height="wrap_content"
+	    	    android:layout_marginTop="30dp"
+	    	    android:text="다시하기" android:textSize="50sp" android:textColor="#FFFFFFFF" android:textStyle="bold"
+	    	    android:padding="20dp"
+	    	    android:background="@drawable/color_red" />
+	    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>
