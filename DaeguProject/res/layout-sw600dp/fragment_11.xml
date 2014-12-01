@@ -75,9 +75,9 @@
 		     <TextView 
 		         android:id="@+id/tvResult"
 		         android:layout_below="@id/answerTwo"   android:layout_centerHorizontal="true"
-		         android:layout_marginTop="10dp"
+		         android:layout_marginTop="20dp"
 		         android:layout_width="wrap_content" android:layout_height="120dp"
-		         android:text=""  android:textSize="30sp" android:gravity="center" android:textStyle="bold" />
+		         android:text=""  android:textSize="60sp" android:gravity="center" android:textStyle="bold" />
 	    </RelativeLayout>
 	    
 	    <FrameLayout 

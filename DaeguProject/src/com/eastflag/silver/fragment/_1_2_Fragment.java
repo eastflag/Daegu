@@ -219,6 +219,7 @@ public class _1_2_Fragment extends Fragment {
 	@Override
 	public void onDestroyView() {
 		mHandler.removeMessages(MSG_TIMER);
+		mHandler.removeMessages(MSG_COUNT_DOWN);
 		super.onDestroyView();
 	}
 	
@@ -319,7 +320,7 @@ public class _1_2_Fragment extends Fragment {
 	                    	SilverApplication.sApp.soundCardSuccess();
 	                    	
 	                    	//한쌍당 10 곱하기 스테이지
-	                        mScore += 10 * mStage;
+	                        mScore += 100 * mStage;
 	                        tvScore.setText(String.valueOf(mScore));
 	                        ++mCorrectPair;
 	                        // remove click handler, 정답이된 그림은 더이상 클릭이 안된다.
@@ -332,6 +333,7 @@ public class _1_2_Fragment extends Fragment {
                     			mVictory = true;
                     			//시간 점수 더하기 : 1단계 기준 60초가 넘으면 시간점수 없음
                     			mScore += (60 * mStage - mTime) > 0 ? (60 * mStage - mTime) * 50 : 0;
+                    			tvScore.setText(String.valueOf(mScore));
                     			gameOver();
                     		}
 	                    } else { //실패

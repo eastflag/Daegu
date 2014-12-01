@@ -38,7 +38,7 @@ public class MySqlController {
 
 	public ArrayList<BaseballVO> selectBasebal() {
 		ArrayList<BaseballVO> baseballList = new ArrayList<BaseballVO>();
-		Cursor cursor = database.rawQuery("select time, hit, created_date from baseball order by time desc", null);
+		Cursor cursor = database.rawQuery("select time, hit, created_date from baseball order by time asc", null);
 
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {

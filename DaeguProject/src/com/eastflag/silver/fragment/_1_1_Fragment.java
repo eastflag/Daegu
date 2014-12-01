@@ -174,6 +174,14 @@ public class _1_1_Fragment extends Fragment {
 		//Timer start
 		mHandler.sendEmptyMessageDelayed(MSG_TIMER, 1000);
 		
+		getRandomAnswer();
+		
+		mMainActivity = (MainActivity) getActivity();
+		
+		return mView;
+	}
+	
+	private void getRandomAnswer() {
 		//Random 3자리 생성
 		int a = getRandomOne();
 		int b = getRandomOne();
@@ -186,11 +194,7 @@ public class _1_1_Fragment extends Fragment {
 		}
 		
 		mAnswer = String.valueOf(a) + String.valueOf(b) + String.valueOf(c);
-		Log.d("LDK", "mAnswer:" + mAnswer);
-		
-		mMainActivity = (MainActivity) getActivity();
-		
-		return mView;
+		Log.e("LDK", "mAnswer:" + mAnswer);
 	}
 
 	@Override
@@ -362,6 +366,9 @@ public class _1_1_Fragment extends Fragment {
 		mAdapter.notifyDataSetChanged();
 		rootHistory.setVisibility(View.VISIBLE);
 		rootVictory.setVisibility(View.INVISIBLE);
+		
+		getRandomAnswer();
+		
 		mHandler.sendEmptyMessageDelayed(MSG_TIMER, 1000);
 	}
 	
