@@ -52,7 +52,6 @@
 		    android:id="@+id/gridview" 
 		    android:layout_width="match_parent" android:layout_height="match_parent"
 		    android:numColumns="auto_fit"
-		    android:verticalSpacing="2dp" android:horizontalSpacing="2dp"
 		    android:gravity="center" />
 	    <LinearLayout
 	        android:id="@+id/rootVictory" android:visibility="gone"

@@ -203,7 +203,7 @@ public class _1_2_Fragment extends Fragment {
 		if(mVictory) {
 			if(mStage < 10) { //마지막단계는 10단계
 				++mStage;
-				if(mStage >= 7) { //7단계까지는 1쌍씩 올리고 7단계부터는 2쌍씩 올린다.
+				if(mStage > 7) { //7단계까지는 1쌍씩 올리고 8단계부터는 2쌍씩 올린다.
 					mPair += 2;
 				} else {
 					mPair += 1;
@@ -261,26 +261,32 @@ public class _1_2_Fragment extends Fragment {
 	    }
 
 	    private void _createImageViews() {
+	    	Log.e("LDK", "pair is " + mPair);
 	        imageViews = new ArrayList<ImageView>();
 	        for(int position = 0; position < getCount(); position++) {
 	            ImageView imageView;
 
 	            imageView = new ImageView(getActivity());
 	            int width = Utils.getDisplayWidth(getActivity());
+	            int padding = 9;
 	            if(mPair <= 8 ) { //4칸
 	            	width = width/4;
+	            	padding = 9;
 	            } else if (mPair > 8 || mPair <= 12){
 	            	width = width/5;
+	            	padding = 6;
 	            } else {
 	            	width = width/6;
+	            	padding = 3;
 	            }
 	            imageView.setLayoutParams(new GridView.LayoutParams(width, width));
 	            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-	            imageView.setPadding(10, 10, 10, 10);
+	            imageView.setPadding(padding, padding, padding, padding);
 
 	            //imageView.setImageResource(R.drawable.back);
 	            int piece = pieces[position];
 	            imageView.setImageResource(mThumbIds[piece]);
+	            Log.d("LDK", "piece:" + piece);
 		        
 	            imageViews.add(imageView);
 

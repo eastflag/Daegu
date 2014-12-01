@@ -309,7 +309,7 @@ public class _1_1_Fragment extends Fragment {
 			SilverApplication.sApp.soundClap();
 			
 			mHandler.removeMessages(MSG_TIMER);
-			rootHistory.setVisibility(View.INVISIBLE);
+			//rootHistory.setVisibility(View.INVISIBLE);
 			rootVictory.setVisibility(View.VISIBLE);
 			
 			//승리 메시지
@@ -364,7 +364,7 @@ public class _1_1_Fragment extends Fragment {
 		mTime = 0;
 		mHistoryList.clear();
 		mAdapter.notifyDataSetChanged();
-		rootHistory.setVisibility(View.VISIBLE);
+		//rootHistory.setVisibility(View.VISIBLE);
 		rootVictory.setVisibility(View.INVISIBLE);
 		
 		getRandomAnswer();
