@@ -1,4 +1,4 @@
-package com.eastflag.silver.fragment;
+package com.eastflag.silverg.fragment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,12 +23,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eastflag.silver.MainActivity;
-import com.eastflag.silver.R;
-import com.eastflag.silver.SilverApplication;
-import com.eastflag.silver.adapter.BaseballAdapter;
-import com.eastflag.silver.database.MySqlController;
-import com.eastflag.silver.dto.BaseballVO;
+import com.eastflag.silverg.MainActivity;
+import com.eastflag.silverg.R;
+import com.eastflag.silverg.SilverApplication;
+import com.eastflag.silverg.adapter.BaseballAdapter;
+import com.eastflag.silverg.database.MySqlController;
+import com.eastflag.silverg.dto.BaseballVO;
 
 public class _1_1_Fragment extends Fragment {
 	private final static int MSG_RESET_ANSWER = 1;

@@ -1,4 +1,4 @@
-package com.eastflag.silver;
+package com.eastflag.silverg;
 
 public final class Constant {
 	

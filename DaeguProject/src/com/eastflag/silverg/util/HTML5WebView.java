@@ -1,4 +1,4 @@
-package com.eastflag.silver.util;
+package com.eastflag.silverg.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.eastflag.silver.R;
+import com.eastflag.silverg.R;
 
 public class HTML5WebView extends WebView {
 	

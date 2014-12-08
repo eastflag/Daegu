@@ -1,4 +1,4 @@
-package com.eastflag.silver.database;
+package com.eastflag.silverg.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,4 +1,4 @@
-package com.eastflag.silver;
+package com.eastflag.silverg;
 
 import java.util.ArrayList;
 

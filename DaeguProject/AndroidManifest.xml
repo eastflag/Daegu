@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eastflag.silver"
+    package="com.eastflag.silverg"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -20,14 +20,14 @@
     <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
     <application
-        android:name=".SilverApplication"
+        android:name="com.eastflag.silverg.SilverApplication"
         android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@drawable/icon_silber"
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
         <activity
-            android:name="com.eastflag.silver.MainActivity"
+            android:name="com.eastflag.silverg.MainActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"

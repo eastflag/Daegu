@@ -1,10 +1,10 @@
-package com.eastflag.silver;
+package com.eastflag.silverg;
 
 import java.util.HashMap;
-
 import android.app.Application;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import com.eastflag.silverg.R;
 
 public class SilverApplication extends Application {
 	

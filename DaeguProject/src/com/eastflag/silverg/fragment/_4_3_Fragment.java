@@ -1,4 +1,4 @@
-package com.eastflag.silver.fragment;
+package com.eastflag.silverg.fragment;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -26,8 +26,8 @@ import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.XmlDom;
-import com.eastflag.silver.Constant;
-import com.eastflag.silver.R;
+import com.eastflag.silverg.Constant;
+import com.eastflag.silverg.R;
 
 public class _4_3_Fragment extends Fragment {
 	

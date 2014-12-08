@@ -1,4 +1,4 @@
-package com.eastflag.silver.dto;
+package com.eastflag.silverg.dto;
 
 public class BaseballVO {
 	private long id;

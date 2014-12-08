@@ -1,8 +1,8 @@
-package com.eastflag.silver.database;
+package com.eastflag.silverg.database;
 
 import java.util.ArrayList;
 
-import com.eastflag.silver.dto.BaseballVO;
+import com.eastflag.silverg.dto.BaseballVO;
 
 import android.content.ContentValues;
 import android.content.Context;

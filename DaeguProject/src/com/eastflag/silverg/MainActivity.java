@@ -1,4 +1,4 @@
-package com.eastflag.silver;
+package com.eastflag.silverg;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -24,13 +24,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.eastflag.silver.fragment._1_1_Fragment;
-import com.eastflag.silver.fragment._1_2_Fragment;
-import com.eastflag.silver.fragment._2_1_Fragment;
-import com.eastflag.silver.fragment._3_1_Fragment;
-import com.eastflag.silver.fragment._4_1_Fragment;
-import com.eastflag.silver.fragment._4_2_Fragment;
-import com.eastflag.silver.fragment._4_3_Fragment;
+import com.eastflag.silverg.R;
+import com.eastflag.silverg.fragment._1_1_Fragment;
+import com.eastflag.silverg.fragment._1_2_Fragment;
+import com.eastflag.silverg.fragment._2_1_Fragment;
+import com.eastflag.silverg.fragment._3_1_Fragment;
+import com.eastflag.silverg.fragment._4_1_Fragment;
+import com.eastflag.silverg.fragment._4_2_Fragment;
+import com.eastflag.silverg.fragment._4_3_Fragment;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 	

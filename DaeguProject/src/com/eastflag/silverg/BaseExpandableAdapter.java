@@ -1,4 +1,4 @@
-package com.eastflag.silver;
+package com.eastflag.silverg;
 
 import java.util.ArrayList;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.eastflag.silver.R;
+import com.eastflag.silverg.R;
 
 public class BaseExpandableAdapter extends BaseExpandableListAdapter{
 	

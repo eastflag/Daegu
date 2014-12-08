@@ -1,4 +1,4 @@
-package com.eastflag.silver.adapter;
+package com.eastflag.silverg.adapter;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.eastflag.silver.R;
-import com.eastflag.silver.dto.BaseballVO;
+import com.eastflag.silverg.R;
+import com.eastflag.silverg.dto.BaseballVO;
 
 public class BaseballAdapter extends BaseAdapter {
 	

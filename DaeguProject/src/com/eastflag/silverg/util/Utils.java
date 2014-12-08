@@ -1,4 +1,4 @@
-package com.eastflag.silver.util;
+package com.eastflag.silverg.util;
 
 import android.app.Activity;
 import android.util.DisplayMetrics;

@@ -1,4 +1,4 @@
-package com.eastflag.silver.fragment;
+package com.eastflag.silverg.fragment;
 
 import android.app.Fragment;
 import android.graphics.Bitmap;
@@ -23,9 +23,9 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.androidquery.AQuery;
-import com.eastflag.silver.R;
-import com.eastflag.silver.fragment._4_1_Fragment.MyWebViewClient;
-import com.eastflag.silver.util.HTML5WebView;
+import com.eastflag.silverg.R;
+import com.eastflag.silverg.fragment._4_1_Fragment.MyWebViewClient;
+import com.eastflag.silverg.util.HTML5WebView;
 
 public class _3_1_Fragment extends Fragment {
 	

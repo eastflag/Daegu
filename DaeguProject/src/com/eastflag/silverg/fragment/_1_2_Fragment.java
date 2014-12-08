@@ -1,4 +1,4 @@
-package com.eastflag.silver.fragment;
+package com.eastflag.silverg.fragment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,10 +20,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eastflag.silver.MainActivity;
-import com.eastflag.silver.R;
-import com.eastflag.silver.SilverApplication;
-import com.eastflag.silver.util.Utils;
+import com.eastflag.silverg.MainActivity;
+import com.eastflag.silverg.R;
+import com.eastflag.silverg.SilverApplication;
+import com.eastflag.silverg.util.Utils;
 
 public class _1_2_Fragment extends Fragment {
 	
@@ -136,7 +136,8 @@ public class _1_2_Fragment extends Fragment {
 		mMainActivity = (MainActivity) getActivity();
 		
 		//게임 레디
-		readyGame(STAGE_1);
+		mPair = STAGE_1;
+		readyGame(mPair);
 		
 		return mView;
 	}
@@ -263,30 +264,34 @@ public class _1_2_Fragment extends Fragment {
 	    private void _createImageViews() {
 	    	Log.e("LDK", "pair is " + mPair);
 	        imageViews = new ArrayList<ImageView>();
+	        
+	        int width = Utils.getDisplayWidth(getActivity());
+	        Log.d("LDK", "width:" + width);
+            int padding = 9;
+            if(mPair <= 8 ) { //4칸
+            	width = width/4;
+            	padding = 9;
+            } else if (mPair > 8 && mPair <= 12){
+            	width = width/5;
+            	padding = 6;
+            } else {
+            	width = width/6;
+            	padding = 3;
+            }
+            Log.d("LDK", "width:" + width);
+            
 	        for(int position = 0; position < getCount(); position++) {
 	            ImageView imageView;
 
 	            imageView = new ImageView(getActivity());
-	            int width = Utils.getDisplayWidth(getActivity());
-	            int padding = 9;
-	            if(mPair <= 8 ) { //4칸
-	            	width = width/4;
-	            	padding = 9;
-	            } else if (mPair > 8 || mPair <= 12){
-	            	width = width/5;
-	            	padding = 6;
-	            } else {
-	            	width = width/6;
-	            	padding = 3;
-	            }
+	            
 	            imageView.setLayoutParams(new GridView.LayoutParams(width, width));
-	            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+	            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 	            imageView.setPadding(padding, padding, padding, padding);
 
 	            //imageView.setImageResource(R.drawable.back);
 	            int piece = pieces[position];
 	            imageView.setImageResource(mThumbIds[piece]);
-	            Log.d("LDK", "piece:" + piece);
 		        
 	            imageViews.add(imageView);
 

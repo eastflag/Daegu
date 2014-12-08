@@ -1,4 +1,4 @@
-package com.eastflag.silver.fragment;
+package com.eastflag.silverg.fragment;
 
 import android.app.Fragment;
 import android.graphics.Bitmap;
@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.eastflag.silver.R;
+import com.eastflag.silverg.R;
 
 public class _4_1_Fragment extends Fragment {
 	
